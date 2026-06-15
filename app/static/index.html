@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Enterprise AI Assistant</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f5f7fb;
+        --panel: #ffffff;
+        --ink: #17202a;
+        --muted: #667085;
+        --line: #d8dee8;
+        --accent: #1a73e8;
+        --accent-strong: #1558b0;
+        --user: #e8f0fe;
+        --assistant: #ffffff;
+        --danger: #b42318;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+        background: radial-gradient(circle at top, #ffffff 0, var(--bg) 42%, #edf2fa 100%);
+        color: var(--ink);
+      }
+
+      .shell {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        min-height: 100vh;
+        max-width: 920px;
+        margin: 0 auto;
+        background: var(--panel);
+        border-left: 1px solid var(--line);
+        border-right: 1px solid var(--line);
+        box-shadow: 0 18px 50px rgba(32, 45, 64, 0.08);
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 18px 22px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .mark {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 800;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 18px;
+        line-height: 1.2;
+      }
+
+      .status {
+        color: var(--muted);
+        font-size: 13px;
+        white-space: nowrap;
+      }
+
+      main {
+        overflow-y: auto;
+        padding: 22px;
+      }
+
+      .messages {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .message {
+        display: flex;
+        gap: 10px;
+        max-width: 82%;
+      }
+
+      .message.user {
+        align-self: flex-end;
+        flex-direction: row-reverse;
+      }
+
+      .avatar {
+        flex: 0 0 30px;
+        display: grid;
+        place-items: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        background: #edf0f5;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .bubble {
+        padding: 11px 13px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--assistant);
+        line-height: 1.45;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+
+      .user .bubble {
+        background: var(--user);
+        border-color: #c9e6dc;
+      }
+
+      .composer {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        gap: 10px;
+        padding: 16px 22px 20px;
+        border-top: 1px solid var(--line);
+        background: #fbfcfe;
+      }
+
+      .mic {
+        min-width: 48px;
+        width: 48px;
+        padding: 0;
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--accent);
+        font-size: 19px;
+      }
+
+      .mic:hover {
+        background: #f0f6ff;
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 48px;
+        max-height: 140px;
+        resize: vertical;
+        padding: 12px 13px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font: inherit;
+        line-height: 1.4;
+      }
+
+      textarea:focus {
+        outline: 2px solid rgba(26, 115, 232, 0.18);
+        border-color: var(--accent);
+      }
+
+      button {
+        align-self: end;
+        height: 48px;
+        min-width: 92px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--accent);
+        color: #fff;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: var(--accent-strong);
+      }
+
+      button:disabled {
+        cursor: wait;
+        opacity: 0.65;
+      }
+
+      .error {
+        color: var(--danger);
+      }
+
+      @media (max-width: 640px) {
+        .shell {
+          border: 0;
+        }
+
+        header,
+        main,
+        .composer {
+          padding-left: 14px;
+          padding-right: 14px;
+        }
+
+        .message {
+          max-width: 96%;
+        }
+
+        .composer {
+          grid-template-columns: 1fr;
+        }
+
+        button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header>
+        <div class="brand">
+          <div class="mark">AI</div>
+          <div>
+            <h1>AI Assistant</h1>
+            <div class="status" id="status">360M model ready</div>
+          </div>
+        </div>
+      </header>
+
+      <main id="chat">
+        <div class="messages" id="messages">
+          <div class="message assistant">
+            <div class="avatar">AI</div>
+            <div class="bubble">Hi, I am ready. Ask me a question.</div>
+          </div>
+        </div>
+      </main>
+
+      <form class="composer" id="form">
+        <textarea id="prompt" placeholder="Type your message..." autocomplete="off"></textarea>
+        <button class="mic" id="mic" type="button" title="Speak">🎙</button>
+        <button id="send" type="submit">Send</button>
+      </form>
+    </div>
+
+    <script>
+      const form = document.getElementById("form");
+      const promptInput = document.getElementById("prompt");
+      const messages = document.getElementById("messages");
+      const chat = document.getElementById("chat");
+      const send = document.getElementById("send");
+      const mic = document.getElementById("mic");
+      const status = document.getElementById("status");
+      const sessionId = `web-${Date.now()}`;
+      const history = [];
+
+      function addMessage(role, content, className = "") {
+        const row = document.createElement("div");
+        row.className = `message ${role}`;
+
+        const avatar = document.createElement("div");
+        avatar.className = "avatar";
+        avatar.textContent = role === "user" ? "You" : "AI";
+
+        const bubble = document.createElement("div");
+        bubble.className = `bubble ${className}`;
+        bubble.textContent = content;
+
+        row.append(avatar, bubble);
+        messages.appendChild(row);
+        chat.scrollTop = chat.scrollHeight;
+        return bubble;
+      }
+
+      async function askAssistant(prompt, priorHistory) {
+        const response = await fetch("/api/v1/infer", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            session_id: sessionId,
+            prompt,
+            history: priorHistory,
+            tools: null,
+            use_rag: false,
+            stream: false
+          })
+        });
+
+        if (!response.ok) {
+          const text = await response.text();
+          throw new Error(text || `Request failed: ${response.status}`);
+        }
+
+        return response.json();
+      }
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const prompt = promptInput.value.trim();
+        if (!prompt) return;
+
+        addMessage("user", prompt);
+        const priorHistory = history.slice();
+        history.push({ role: "user", content: prompt });
+        promptInput.value = "";
+        promptInput.focus();
+
+        const thinking = addMessage("assistant", "Thinking...");
+        send.disabled = true;
+        status.textContent = "Thinking";
+
+        try {
+          const data = await askAssistant(prompt, priorHistory);
+          thinking.textContent = data.response || "";
+          history.push({ role: "assistant", content: thinking.textContent });
+          status.textContent = "Ready";
+        } catch (error) {
+          thinking.textContent = "Could not get an answer. Check the server logs.";
+          thinking.classList.add("error");
+          status.textContent = "Error";
+          console.error(error);
+        } finally {
+          send.disabled = false;
+          chat.scrollTop = chat.scrollHeight;
+        }
+      });
+
+      promptInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" && !event.shiftKey) {
+          event.preventDefault();
+          form.requestSubmit();
+        }
+      });
+
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (SpeechRecognition) {
+        const recognition = new SpeechRecognition();
+        recognition.lang = "en-US";
+        recognition.interimResults = false;
+        mic.addEventListener("click", () => {
+          status.textContent = "Listening";
+          recognition.start();
+        });
+        recognition.addEventListener("result", (event) => {
+          promptInput.value = event.results[0][0].transcript;
+          form.requestSubmit();
+        });
+        recognition.addEventListener("end", () => {
+          if (!send.disabled) status.textContent = "Ready";
+        });
+      } else {
+        mic.disabled = true;
+        mic.title = "Voice input is not supported in this browser";
+      }
+    </script>
+  </body>
+</html>
