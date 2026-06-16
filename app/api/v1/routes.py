@@ -21,6 +21,7 @@ from app.services.tool_service import ToolService
 from app.services.model_service import ModelService
 from app.services.writing_service import WritingService
 from app.services.sentiment_service import SentimentService
+from app.services.chat_reply_service import ChatReplyService
 from app.services.emotion_model import EmotionModel
 from app.services.voice_pipeline import analyze_voice
 from app.config import settings
@@ -96,6 +97,7 @@ async def infer(payload: InferenceRequest, request: Request):
     history = payload.history or []
 
     try:
+        sentiment_result = SentimentService.analyze(prompt)
         await MemoryService.append_user_message(session_id, prompt)
 
         if payload.use_rag:
@@ -109,7 +111,11 @@ async def infer(payload: InferenceRequest, request: Request):
             return InferenceResponse(
                 session_id=session_id,
                 response=writing_result,
-                metadata={"retrieved_docs": len(retrieved_docs), "handled_by": "writing_template"},
+                metadata={
+                    "retrieved_docs": len(retrieved_docs),
+                    "handled_by": "writing_template",
+                    "sentiment": sentiment_result,
+                },
             )
 
         if payload.stream and settings.enable_streaming:
@@ -135,12 +141,20 @@ async def infer(payload: InferenceRequest, request: Request):
             retrieved_docs=retrieved_docs,
             tools=payload.tools,
         )
+        handled_by = "model"
+        if ChatReplyService.needs_fallback(result):
+            result = ChatReplyService.build_fallback(prompt, sentiment_result)
+            handled_by = "local_chat_reply"
 
         await MemoryService.append_assistant_message(session_id, result)
         return InferenceResponse(
             session_id=session_id,
             response=result,
-            metadata={"retrieved_docs": len(retrieved_docs)},
+            metadata={
+                "retrieved_docs": len(retrieved_docs),
+                "handled_by": handled_by,
+                "sentiment": sentiment_result,
+            },
         )
     except Exception as exc:
         error_counter.inc()

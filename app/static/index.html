@@ -132,6 +132,15 @@
         border-color: #c9e6dc;
       }
 
+      .sentiment {
+        display: block;
+        margin-top: 8px;
+        padding-top: 8px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 12px;
+      }
+
       .composer {
         display: grid;
         grid-template-columns: 1fr auto auto;
@@ -231,7 +240,7 @@
           <div class="mark">AI</div>
           <div>
             <h1>AI Assistant</h1>
-            <div class="status" id="status">360M model ready</div>
+            <div class="status" id="status">Ready</div>
           </div>
         </div>
       </header>
@@ -262,6 +271,10 @@
       const status = document.getElementById("status");
       const sessionId = `web-${Date.now()}`;
       const history = [];
+      const notificationStorageKey = "assistant.notifications.allowed";
+      let mediaRecorder = null;
+      let audioChunks = [];
+      let isRecording = false;
 
       function addMessage(role, content, className = "") {
         const row = document.createElement("div");
@@ -279,6 +292,66 @@
         messages.appendChild(row);
         chat.scrollTop = chat.scrollHeight;
         return bubble;
+      }
+
+      function addSentimentMeta(bubble, sentiment) {
+        if (!sentiment) return;
+        const confidence = Math.round((sentiment.confidence || 0) * 100);
+        const meta = document.createElement("span");
+        meta.className = "sentiment";
+        meta.textContent = `Sentiment: ${sentiment.sentiment} (${confidence}%)`;
+        bubble.appendChild(meta);
+      }
+
+      function speakReply(text) {
+        if (!("speechSynthesis" in window) || !text) {
+          status.textContent = "Ready";
+          return;
+        }
+
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "en-US";
+        utterance.rate = 1;
+        utterance.pitch = 1;
+        utterance.onstart = () => {
+          status.textContent = "Speaking";
+        };
+        utterance.onend = () => {
+          if (!send.disabled) status.textContent = "Ready";
+        };
+        utterance.onerror = () => {
+          if (!send.disabled) status.textContent = "Ready";
+        };
+        status.textContent = "Speaking";
+        window.speechSynthesis.speak(utterance);
+      }
+
+      async function ensureNotificationPermission() {
+        if (!("Notification" in window)) return false;
+
+        if (Notification.permission === "granted") {
+          localStorage.setItem(notificationStorageKey, "true");
+          return true;
+        }
+
+        if (Notification.permission === "denied") {
+          localStorage.removeItem(notificationStorageKey);
+          return false;
+        }
+
+        const permission = await Notification.requestPermission();
+        if (permission === "granted") {
+          localStorage.setItem(notificationStorageKey, "true");
+          return true;
+        }
+
+        return false;
+      }
+
+      function showNotification(title, body) {
+        if (!("Notification" in window) || Notification.permission !== "granted") return;
+        new Notification(title, { body });
       }
 
       async function askAssistant(prompt, priorHistory) {
@@ -303,12 +376,26 @@
         return response.json();
       }
 
-      form.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        const prompt = promptInput.value.trim();
-        if (!prompt) return;
+      async function analyzeVoice(blob) {
+        const formData = new FormData();
+        formData.append("file", blob, "voice.webm");
 
-        addMessage("user", prompt);
+        const response = await fetch("/api/v1/voice-sentiment", {
+          method: "POST",
+          body: formData
+        });
+
+        if (!response.ok) {
+          const text = await response.text();
+          throw new Error(text || `Voice analysis failed: ${response.status}`);
+        }
+
+        return response.json();
+      }
+
+      async function submitPrompt(prompt, sentiment = null) {
+        const userBubble = addMessage("user", prompt);
+        addSentimentMeta(userBubble, sentiment);
         const priorHistory = history.slice();
         history.push({ role: "user", content: prompt });
         promptInput.value = "";
@@ -316,13 +403,20 @@
 
         const thinking = addMessage("assistant", "Thinking...");
         send.disabled = true;
+        mic.disabled = true;
         status.textContent = "Thinking";
 
         try {
+          await ensureNotificationPermission();
           const data = await askAssistant(prompt, priorHistory);
-          thinking.textContent = data.response || "";
-          history.push({ role: "assistant", content: thinking.textContent });
-          status.textContent = "Ready";
+          const reply = data.response || "";
+          thinking.textContent = reply;
+          if (!sentiment) {
+            addSentimentMeta(thinking, data.metadata && data.metadata.sentiment);
+          }
+          history.push({ role: "assistant", content: reply });
+          speakReply(reply);
+          showNotification("AI Assistant", reply);
         } catch (error) {
           thinking.textContent = "Could not get an answer. Check the server logs.";
           thinking.classList.add("error");
@@ -330,8 +424,16 @@
           console.error(error);
         } finally {
           send.disabled = false;
+          mic.disabled = false;
           chat.scrollTop = chat.scrollHeight;
         }
+      }
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const prompt = promptInput.value.trim();
+        if (!prompt) return;
+        submitPrompt(prompt);
       });
 
       promptInput.addEventListener("keydown", (event) => {
@@ -341,21 +443,57 @@
         }
       });
 
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      if (SpeechRecognition) {
-        const recognition = new SpeechRecognition();
-        recognition.lang = "en-US";
-        recognition.interimResults = false;
-        mic.addEventListener("click", () => {
-          status.textContent = "Listening";
-          recognition.start();
+      async function startRecording() {
+        await ensureNotificationPermission();
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        audioChunks = [];
+        mediaRecorder = new MediaRecorder(stream);
+        mediaRecorder.addEventListener("dataavailable", (event) => {
+          if (event.data.size > 0) audioChunks.push(event.data);
         });
-        recognition.addEventListener("result", (event) => {
-          promptInput.value = event.results[0][0].transcript;
-          form.requestSubmit();
+        mediaRecorder.addEventListener("stop", async () => {
+          stream.getTracks().forEach((track) => track.stop());
+          isRecording = false;
+          mic.textContent = "Mic";
+          status.textContent = "Analyzing voice";
+          send.disabled = true;
+          mic.disabled = true;
+
+          try {
+            const audioBlob = new Blob(audioChunks, { type: mediaRecorder.mimeType || "audio/webm" });
+            const voice = await analyzeVoice(audioBlob);
+            const transcript = (voice.transcript || "").trim();
+            if (!transcript) throw new Error("No speech was detected in the recording.");
+            promptInput.value = transcript;
+            await submitPrompt(transcript, voice);
+          } catch (error) {
+            addMessage("assistant", "Could not analyze your voice. Please try again.", "error");
+            status.textContent = "Error";
+            console.error(error);
+          } finally {
+            send.disabled = false;
+            mic.disabled = false;
+            chat.scrollTop = chat.scrollHeight;
+          }
         });
-        recognition.addEventListener("end", () => {
-          if (!send.disabled) status.textContent = "Ready";
+        mediaRecorder.start();
+        isRecording = true;
+        mic.textContent = "Stop";
+        status.textContent = "Recording";
+      }
+
+      if (navigator.mediaDevices && window.MediaRecorder) {
+        mic.addEventListener("click", async () => {
+          try {
+            if (isRecording && mediaRecorder) {
+              mediaRecorder.stop();
+            } else {
+              await startRecording();
+            }
+          } catch (error) {
+            status.textContent = "Microphone blocked";
+            console.error(error);
+          }
         });
       } else {
         mic.disabled = true;
