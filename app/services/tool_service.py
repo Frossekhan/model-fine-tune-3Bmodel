@@ -49,8 +49,8 @@ ToolService.register_tool(
 async def web_search(query: str, max_results: int = 3):
     from duckduckgo_search import DDGS
     try:
-        with DDGS() as ddgs:
-            return {"query": query, "results": list(ddgs.text(query, max_results=max_results))}
+        ddgs = DDGS()
+        return {"query": query, "results": list(ddgs.text(query, max_results=max_results))}
     except Exception as e:
         return {"error": str(e)}
 

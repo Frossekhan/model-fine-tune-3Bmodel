@@ -9,6 +9,10 @@
   {"text": "Great work, I am impressed", "label": "positive"},
   {"text": "The quality is really good", "label": "positive"},
   {"text": "Everything went smoothly today", "label": "positive"},
+  {"text": "Machi I am feeling very happy today", "label": "positive"},
+  {"text": "Enaku romba happy ah iruku", "label": "positive"},
+  {"text": "Semma good feeling today", "label": "positive"},
+  {"text": "Nalla iruku I feel confident", "label": "positive"},
   {"text": "I hate this product", "label": "negative"},
   {"text": "The service was terrible and unhelpful", "label": "negative"},
   {"text": "This is a very disappointing experience", "label": "negative"},
@@ -19,6 +23,11 @@
   {"text": "Poor work, I am frustrated", "label": "negative"},
   {"text": "The quality is really bad", "label": "negative"},
   {"text": "Nothing worked correctly today", "label": "negative"},
+  {"text": "Machi enaku romba stress ah iruku", "label": "negative"},
+  {"text": "Enaku bayama iruku and I feel stressed", "label": "negative"},
+  {"text": "R omba sad ah iruku today", "label": "negative"},
+  {"text": "I am tense and worried now", "label": "negative"},
+  {"text": "Mood seri illa I feel bad", "label": "negative"},
   {"text": "The meeting is scheduled for tomorrow", "label": "neutral"},
   {"text": "The package arrived this afternoon", "label": "neutral"},
   {"text": "The document contains five sections", "label": "neutral"},
@@ -28,5 +37,8 @@
   {"text": "The office opens at nine", "label": "neutral"},
   {"text": "The update includes three changes", "label": "neutral"},
   {"text": "The customer submitted a request", "label": "neutral"},
-  {"text": "The system recorded the transaction", "label": "neutral"}
+  {"text": "The system recorded the transaction", "label": "neutral"},
+  {"text": "Machi class starts at nine", "label": "neutral"},
+  {"text": "Enaku assignment submit pannanum today", "label": "neutral"},
+  {"text": "Audio file is available in the folder", "label": "neutral"}
 ]

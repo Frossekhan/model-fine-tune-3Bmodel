@@ -55,3 +55,21 @@ class SentimentResponse(BaseModel):
     probabilities: Dict[str, float]
     model: str
 
+
+class EmotionResponse(BaseModel):
+    text: str
+    processed_text: str
+    sentiment: str
+    confidence: float
+    probabilities: Dict[str, float]
+    model: str
+
+
+class VoiceSentimentResponse(BaseModel):
+    transcript: str
+    processed_text: str
+    sentiment: str
+    confidence: float
+    probabilities: Dict[str, float]
+    model: str
+

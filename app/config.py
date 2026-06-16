@@ -31,6 +31,11 @@ class Settings(BaseSettings):
         env="SENTIMENT_DATASET_PATH",
     )
     sentiment_alpha: float = Field(default=1.0, env="SENTIMENT_ALPHA")
+    emotion_model_name: str = Field(
+        default="cardiffnlp/twitter-xlm-roberta-base-sentiment",
+        env="EMOTION_MODEL_NAME",
+    )
+    whisper_model_size: str = Field(default="base", env="WHISPER_MODEL_SIZE")
     temperature: float = Field(default=0.3, env="TEMPERATURE")
     top_p: float = Field(default=0.95, env="TOP_P")
     log_level: str = Field(default="INFO", env="LOG_LEVEL")
