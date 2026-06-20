@@ -16,3 +16,5 @@ sse-starlette>=1.5.0
 pytest>=8.4.0
 openai-whisper>=20231117
 python-multipart>=0.0.9
+datasets>=2.14.0
+evaluate>=0.4.0

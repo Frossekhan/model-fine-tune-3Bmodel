@@ -13,6 +13,8 @@ class Settings(BaseSettings):
     model_base: str = Field(default="Qwen/Qwen2.5-7B-Instruct", env="MODEL_BASE")
     lora_output_dir: str = Field(default="", env="LORA_OUTPUT_DIR")
     adapter_name: str = Field(default="qwen-7b-lora-final", env="LORA_ADAPTER_NAME")
+    sentiment_model_base: str = Field(default="Qwen/Qwen2.5-3B-Instruct", env="SENTIMENT_MODEL_BASE")
+    sentiment_lora_output_dir: str = Field(default="./models/sentiment_qwen_3b_lora", env="SENTIMENT_LORA_OUTPUT_DIR")
     embedding_model: str = Field(default="BAAI/bge-large-en-v1.5", env="EMBEDDING_MODEL")
     chroma_persist_dir: str = Field(default="./chroma_store_bge", env="CHROMA_PERSIST_DIR")
     redis_url: str = Field(default="redis://localhost:6379/0", env="REDIS_URL")
