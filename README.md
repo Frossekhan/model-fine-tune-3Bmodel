@@ -44,6 +44,63 @@ python training/train_sentiment.py
 The server also trains and saves the model automatically when the configured
 model file does not exist.
 
+## Training Data
+
+Curated examples live in:
+
+- `training/examples/fine_tune_demo.json` for instruction/LoRA training
+- `training/examples/sentiment_dataset.json` for sentiment classifier training
+
+Collect current public RSS data into a reviewable instruction dataset:
+
+```bash
+python training/collect_realtime_data.py --limit 50
+```
+
+If your local Python certificate store blocks public RSS feeds during
+development, rerun with `--allow-insecure-ssl`.
+
+Generate neutral sentiment examples from current headlines:
+
+```bash
+python training/collect_realtime_data.py --mode sentiment-neutral --training-output training/examples/realtime_sentiment_neutral.json
+```
+
+Review generated files before training. Fresh public data can be noisy, and
+private customer data should be cleaned before it is added to any dataset.
+
+## RAG Algorithm and Real-Time Fine-Tuning Flow
+
+RAG is not a normal model-training algorithm. It is a retrieval pipeline:
+
+1. Collect or load documents.
+2. Clean and split long text into overlapping chunks.
+3. Convert each chunk into an embedding vector.
+4. Store vectors and metadata in ChromaDB.
+5. Embed the user's question at runtime.
+6. Retrieve the closest chunks.
+7. Put the retrieved knowledge into the model prompt.
+8. Generate an answer grounded in the retrieved text.
+
+Build RAG documents and RAG-style LoRA examples from fresh public data:
+
+```bash
+python training/collect_realtime_data.py --limit 100 --allow-insecure-ssl
+python training/build_rag_training_data.py
+```
+
+Index the generated documents into ChromaDB:
+
+```bash
+python training/index_rag_documents.py --docs training/examples/realtime_rag_documents.json
+```
+
+Fine-tune the chatbot on the merged curated + real-time RAG dataset:
+
+```bash
+python training/pipeline.py --train-data training/examples/fine_tune_realtime_rag.json
+```
+
 Analyze text:
 
 ```bash

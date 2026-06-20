@@ -10,13 +10,13 @@ class ChromaClient:
 
     def initialize(self, collection_name: str = "enterprise_assistant"):
         self.client = Client(
-            Settings(persist_directory=settings.chroma_persist_dir)
+            ChromaSettings(persist_directory=settings.chroma_persist_dir)
         )
         self.collection = self.client.get_or_create_collection(name=collection_name)
         return self.collection
 
     def add_documents(self, ids, documents, metadatas, embeddings):
-        return self.collection.add(
+        return self.collection.upsert(
             ids=ids,
             documents=documents,
             metadatas=metadatas,

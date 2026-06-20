@@ -15,6 +15,7 @@ from app.logger_config import configure_logging
 from app.api.v1.routes import router as api_router
 from app.api.v1 import sentiment
 from app.db.redis_client import redis_client
+from app.db.mongo_client import mongo_client
 from app.services.model_service import ModelService
 from app.services.rag_service import RAGService
 from app.services.sentiment_service import SentimentService
@@ -30,12 +31,17 @@ async def lifespan(app: FastAPI):
         await redis_client.connect()
     except Exception as e:
         logger.warning("Redis connection failed: %s. Continuing without Redis.", str(e))
-    
+
+    try:
+        mongo_client.connect()
+    except Exception as e:
+        logger.warning("MongoDB connection failed: %s. Continuing without MongoDB.", str(e))
+
     try:
         await ModelService.initialize()
     except Exception as e:
         logger.warning("Model initialization failed: %s. API will still start.", str(e))
-    
+
     try:
         RAGService.initialize()
     except Exception as e:
@@ -45,11 +51,12 @@ async def lifespan(app: FastAPI):
         SentimentService.initialize()
     except Exception as e:
         logger.warning("Sentiment service initialization failed: %s", str(e))
-        
+
     yield
-    
+
     logger.info("Shutting down backend")
     await redis_client.disconnect()
+    mongo_client.disconnect()
 
 app = FastAPI(
     title=settings.app_name,
@@ -77,34 +84,6 @@ async def chat_app():
     return FileResponse("app/static/index.html")
 
 
-@app.on_event("startup")
-async def startup_event():
-    logger.info("Starting Enterprise AI Assistant backend")
-    try:
-        await redis_client.connect()
-    except Exception as e:
-        logger.warning("Redis connection failed: %s. Continuing without Redis.", str(e))
-    
-    try:
-        await ModelService.initialize()
-    except Exception as e:
-        logger.warning("Model initialization failed: %s. API will still start.", str(e))
-    
-    try:
-        RAGService.initialize()
-    except Exception as e:
-        logger.warning("RAG service initialization failed: %s", str(e))
-
-    try:
-        SentimentService.initialize()
-    except Exception as e:
-        logger.warning("Sentiment service initialization failed: %s", str(e))
-
-
-@app.on_event("shutdown")
-async def shutdown_event():
-    logger.info("Shutting down backend")
-    await redis_client.disconnect()
 
 
 if __name__ == "__main__":

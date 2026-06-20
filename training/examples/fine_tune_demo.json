@@ -2,42 +2,27 @@
   {
     "instruction": "Who are you?",
     "input": "",
-    "output": "I am the fine-tuned Enterprise AI Assistant demo, trained to answer business workflow questions in a clear and practical way."
-  },
-  {
-    "instruction": "What makes you different from the base model?",
-    "input": "",
-    "output": "I use a LoRA fine-tuned adapter on top of the base model, so the demo can show a customized assistant behavior."
+    "output": "I am your fine-tuned Enterprise AI Assistant, built to answer clearly, help with business workflows, and support sentiment-aware conversations."
   },
   {
     "instruction": "Explain this project in one sentence.",
     "input": "",
-    "output": "This project is a FastAPI chatbot backend with a browser chat UI and a LoRA fine-tuned language model adapter."
+    "output": "This project is a FastAPI chatbot backend with a browser UI, LoRA fine-tuning support, RAG retrieval, Redis memory, tool calling, streaming responses, voice utilities, and sentiment analysis."
   },
   {
     "instruction": "How should you answer enterprise questions?",
     "input": "",
-    "output": "I should answer in a concise, professional style with clear steps, practical recommendations, and business context."
+    "output": "I should be concise, professional, practical, and structured around the decision, risk, next step, and business impact."
   },
   {
-    "instruction": "what is quantum technology",
+    "instruction": "What makes you different from the base model?",
     "input": "",
-    "output": "Quantum technology uses the unusual rules of quantum physics to build powerful tools like quantum computers, ultra-secure communication systems, and highly sensitive sensors."
+    "output": "I use project-specific training examples and a LoRA adapter so my answers can match this assistant's preferred tone, workflows, and enterprise context."
   },
   {
-    "instruction": "explain",
-    "input": "Previous topic: quantum technology",
-    "output": "In simple terms, normal computers use bits that are either 0 or 1. Quantum computers use qubits, which can behave like 0 and 1 at the same time. That can help solve certain complex problems much faster."
-  },
-  {
-    "instruction": "Explain quantum technology in simple words.",
-    "input": "",
-    "output": "Quantum technology is technology built using quantum physics. It can help create faster computers, safer communication, and sensors that measure tiny changes very accurately."
-  },
-  {
-    "instruction": "What is AI?",
-    "input": "",
-    "output": "AI, or artificial intelligence, is software that can understand information, learn patterns, and help with tasks like answering questions, writing, coding, and decision-making."
+    "instruction": "Answer like a helpful voice assistant.",
+    "input": "What is machine learning?",
+    "output": "Machine learning is a type of AI where software learns patterns from data and uses them to make predictions or decisions."
   },
   {
     "instruction": "Give a short answer.",
@@ -45,23 +30,333 @@
     "output": "Cloud computing means using internet-based servers to store data, run apps, and access computing power without managing physical hardware yourself."
   },
   {
-    "instruction": "Answer like a helpful voice assistant.",
-    "input": "What is machine learning?",
-    "output": "Machine learning is a type of AI where computers learn patterns from data and use them to make predictions or decisions."
-  },
-  {
     "instruction": "Answer directly without saying what you can do.",
     "input": "What is blockchain?",
     "output": "Blockchain is a shared digital record where transactions are stored in linked blocks, making the data hard to change and easy to verify."
   },
   {
-    "instruction": "What makes you different from the base model?",
+    "instruction": "Explain artificial intelligence in simple words.",
     "input": "",
-    "output": "I use a LoRA fine-tuned adapter on top of the base model, so my answers are customized for this assistant demo."
+    "output": "Artificial intelligence is software that can understand information, learn patterns, and help with tasks like answering questions, writing, coding, and decision-making."
   },
   {
-    "instruction": "Who are you?",
+    "instruction": "Explain quantum technology in simple words.",
     "input": "",
-    "output": "I am your fine-tuned AI assistant, built to give short, clear, and useful answers in a chatbot experience."
+    "output": "Quantum technology uses quantum physics to build tools like faster computers, secure communication systems, and very sensitive sensors."
+  },
+  {
+    "instruction": "Explain.",
+    "input": "Previous topic: quantum technology",
+    "output": "Normal computers use bits that are either 0 or 1. Quantum computers use qubits, which can represent more complex states and may solve certain difficult problems faster."
+  },
+  {
+    "instruction": "Summarize the following meeting notes into action items.",
+    "input": "We reviewed Q2 sales performance, identified gaps in customer onboarding, and prioritized product roadmap updates.",
+    "output": "- Review Q2 sales performance metrics\n- Improve customer onboarding\n- Prioritize product roadmap updates"
+  },
+  {
+    "instruction": "Write a professional email response to a client asking for deployment timeline details.",
+    "input": "The client is concerned about launch dates and resource allocation.",
+    "output": "Dear Client,\n\nThank you for reaching out. We expect to complete the deployment readiness review by next Tuesday and begin a phased rollout the following week. I will share a detailed timeline and resource plan by tomorrow.\n\nBest regards"
+  },
+  {
+    "instruction": "Convert the notes into a concise status update.",
+    "input": "API work is complete. UI testing is in progress. Redis setup is blocked by missing credentials. Production release is planned for Friday.",
+    "output": "API work is complete, UI testing is in progress, and the Friday release is still planned. The main blocker is Redis credentials, which are needed before production readiness can be confirmed."
+  },
+  {
+    "instruction": "Classify the customer message sentiment and explain briefly.",
+    "input": "The support team solved my issue quickly and the app works perfectly now.",
+    "output": "Sentiment: positive. The customer mentions a quick resolution and confirms that the application is working well."
+  },
+  {
+    "instruction": "Classify the customer message sentiment and explain briefly.",
+    "input": "The application keeps crashing and no one has replied to my ticket.",
+    "output": "Sentiment: negative. The customer reports repeated failures and a lack of support response."
+  },
+  {
+    "instruction": "Classify the customer message sentiment and explain briefly.",
+    "input": "The report is available in the dashboard and the meeting starts at nine.",
+    "output": "Sentiment: neutral. The message provides factual information without a clear positive or negative opinion."
+  },
+  {
+    "instruction": "Detect the sentiment in Tanglish.",
+    "input": "Machi, app romba nalla work aaguthu. Super helpful.",
+    "output": "Sentiment: positive. The speaker says the app works very well and is helpful."
+  },
+  {
+    "instruction": "Detect the sentiment in Tanglish.",
+    "input": "Enaku romba stress ah iruku, support response varala.",
+    "output": "Sentiment: negative. The speaker feels stressed and says support has not responded."
+  },
+  {
+    "instruction": "Explain what RAG means.",
+    "input": "",
+    "output": "RAG means retrieval-augmented generation. The assistant first retrieves relevant documents, then uses them as context to produce a more grounded answer."
+  },
+  {
+    "instruction": "When should an enterprise assistant use RAG?",
+    "input": "",
+    "output": "Use RAG when the answer depends on company documents, policies, product manuals, tickets, contracts, or any knowledge that may change over time."
+  },
+  {
+    "instruction": "What should the assistant do when it does not know an answer?",
+    "input": "",
+    "output": "It should say that it is not sure, ask for missing context if needed, and avoid inventing details."
+  },
+  {
+    "instruction": "Write a concise incident summary.",
+    "input": "Checkout latency increased after the 2 PM deployment. Rollback completed at 2:35 PM. Error rates returned to normal by 2:42 PM.",
+    "output": "Checkout latency increased after the 2 PM deployment. The team rolled back at 2:35 PM, and error rates returned to normal by 2:42 PM."
+  },
+  {
+    "instruction": "Create a customer support reply.",
+    "input": "The customer says their invoice download fails with a 500 error.",
+    "output": "Thanks for reporting this. We are checking the invoice download issue now. Please share the invoice ID and approximate time of the failure so we can trace the error quickly."
+  },
+  {
+    "instruction": "Rewrite the message in a more professional tone.",
+    "input": "We messed up the deploy and need to fix it fast.",
+    "output": "The deployment introduced an issue, and the team is prioritizing a fix immediately."
+  },
+  {
+    "instruction": "Rewrite the message in a warmer tone.",
+    "input": "Your ticket has been received. Wait for updates.",
+    "output": "Thanks for contacting us. We have received your ticket and will keep you updated as we investigate."
+  },
+  {
+    "instruction": "Generate release notes from the input.",
+    "input": "Added sentiment API. Improved chat streaming. Fixed memory lookup timeout. Updated Docker config.",
+    "output": "- Added sentiment analysis API\n- Improved chat response streaming\n- Fixed memory lookup timeout\n- Updated Docker configuration"
+  },
+  {
+    "instruction": "Extract risks from the project update.",
+    "input": "The model loads correctly locally, but GPU memory is limited in staging and Redis is not yet configured.",
+    "output": "- Staging may not have enough GPU memory\n- Redis configuration is incomplete\n- Local success may not reflect production behavior"
+  },
+  {
+    "instruction": "Suggest next steps for model training.",
+    "input": "The dataset has only a few examples and the assistant gives generic answers.",
+    "output": "Increase the dataset size, balance examples across tasks, include real user questions, add high-quality target answers, validate JSON formatting, and retrain the LoRA adapter."
+  },
+  {
+    "instruction": "Explain why dataset quality matters.",
+    "input": "",
+    "output": "A model learns patterns from the training examples. Clean, specific, balanced examples usually improve behavior more than a large amount of noisy data."
+  },
+  {
+    "instruction": "Explain overfitting in simple words.",
+    "input": "",
+    "output": "Overfitting happens when a model memorizes training examples too closely and performs poorly on new inputs."
+  },
+  {
+    "instruction": "Explain what LoRA fine-tuning does.",
+    "input": "",
+    "output": "LoRA fine-tuning trains a small adapter on top of a base model, which makes customization faster and lighter than retraining the full model."
+  },
+  {
+    "instruction": "Answer the enterprise policy question cautiously.",
+    "input": "Can employees upload customer contracts to an external AI tool?",
+    "output": "Employees should follow company data handling policy before uploading customer contracts to any external tool. If the policy is unclear, escalate to security or legal because contracts may contain confidential information."
+  },
+  {
+    "instruction": "Create a short sales follow-up email.",
+    "input": "The prospect asked about pricing and integration with Salesforce.",
+    "output": "Hi,\n\nThanks for your interest. I am sharing pricing details and Salesforce integration options for your review. I would be happy to schedule a short call to map this to your team's workflow.\n\nBest regards"
+  },
+  {
+    "instruction": "Create a project update for leadership.",
+    "input": "Backend complete, frontend 80 percent complete, sentiment model needs retraining, launch target next Wednesday.",
+    "output": "The backend is complete and the frontend is about 80 percent complete. The main remaining item is retraining the sentiment model. The launch target remains next Wednesday."
+  },
+  {
+    "instruction": "Turn the customer complaint into an internal bug report.",
+    "input": "Whenever I upload a PDF, the chatbot says it cannot find the file even though upload succeeds.",
+    "output": "Bug: Chatbot cannot retrieve uploaded PDF after successful upload.\nImpact: Users cannot ask questions about uploaded documents.\nSuggested investigation: Verify upload storage path, retrieval indexing, and document ID mapping."
+  },
+  {
+    "instruction": "Write an API error explanation for a developer.",
+    "input": "POST /api/v1/chat returns 422 when message is missing.",
+    "output": "The request is failing validation because the required message field is missing. Send a JSON body that includes the expected message value."
+  },
+  {
+    "instruction": "Write a user-friendly error message.",
+    "input": "Redis connection refused.",
+    "output": "Memory service is temporarily unavailable. You can continue chatting, but previous conversation context may not be saved until the service reconnects."
+  },
+  {
+    "instruction": "Explain streaming responses.",
+    "input": "",
+    "output": "Streaming sends the answer in small chunks as it is generated, so the user sees progress faster instead of waiting for the full response."
+  },
+  {
+    "instruction": "Describe the sentiment endpoint.",
+    "input": "",
+    "output": "The sentiment endpoint accepts text and returns the predicted sentiment label, confidence score, class probabilities, and model name."
+  },
+  {
+    "instruction": "Give a concise answer.",
+    "input": "How do I retrain the sentiment model?",
+    "output": "Update training/examples/sentiment_dataset.json, then run python training/train_sentiment.py from the project root."
+  },
+  {
+    "instruction": "Give a concise answer.",
+    "input": "How do I run LoRA training?",
+    "output": "Run python training/pipeline.py --train-data training/examples/fine_tune_demo.json from the project root."
+  },
+  {
+    "instruction": "Write a test case idea.",
+    "input": "Sentiment classifier predicts neutral for unknown factual text.",
+    "output": "Add a test with a factual sentence containing mostly unseen words and assert that the predicted label is neutral when no known sentiment tokens are present."
+  },
+  {
+    "instruction": "Summarize the support ticket.",
+    "input": "User cannot log in after password reset. Browser cache cleared. Error says token expired. Issue affects two users.",
+    "output": "Two users cannot log in after password reset because the reset token appears expired. Cache clearing did not resolve the issue."
+  },
+  {
+    "instruction": "Extract entities from the message.",
+    "input": "Acme Corp needs deployment on July 15 with SSO, audit logs, and priority support.",
+    "output": "Customer: Acme Corp\nDate: July 15\nRequirements: SSO, audit logs, priority support"
+  },
+  {
+    "instruction": "Create a checklist for production readiness.",
+    "input": "FastAPI app with Redis, ChromaDB, model adapter, and sentiment model.",
+    "output": "- Confirm environment variables\n- Verify Redis connectivity\n- Verify ChromaDB persistence\n- Load the model adapter\n- Train or load sentiment model\n- Run API smoke tests\n- Review logs and monitoring"
+  },
+  {
+    "instruction": "Explain the difference between training data and real-time data.",
+    "input": "",
+    "output": "Training data teaches the model behavior during fine-tuning. Real-time data is fresh information collected from APIs, logs, news, tickets, or databases and should be cleaned before it is used for training."
+  },
+  {
+    "instruction": "Advise on using real-time data for training.",
+    "input": "I want to train my model on live data.",
+    "output": "Collect live data into a reviewable dataset, remove private information, label or format it consistently, filter low-quality records, then retrain on a stable snapshot rather than training directly on raw live streams."
+  },
+  {
+    "instruction": "Make this response shorter.",
+    "input": "The production incident has been resolved after rolling back the latest deployment and verifying that error rates have returned to normal.",
+    "output": "The incident is resolved after rollback, and error rates are back to normal."
+  },
+  {
+    "instruction": "Make this response more detailed.",
+    "input": "The deployment failed.",
+    "output": "The deployment failed before completion. The team should review the deployment logs, identify the failing step, confirm whether any partial changes reached production, and rerun only after the root cause is understood."
+  },
+  {
+    "instruction": "Answer in a calm support tone.",
+    "input": "I lost access to my dashboard after changing my email.",
+    "output": "I understand how disruptive that is. Please share the old and new email addresses used on the account, and we will check the account mapping so access can be restored."
+  },
+  {
+    "instruction": "Answer in a concise technical tone.",
+    "input": "Why did the sentiment model load slowly on first request?",
+    "output": "The first request likely triggered model initialization from disk. Persist the trained model and load it during application startup to reduce first-request latency."
+  },
+  {
+    "instruction": "Explain data privacy for training data.",
+    "input": "",
+    "output": "Training data should not include passwords, secrets, private keys, payment details, health data, or customer personal data unless you have a lawful basis and strong controls."
+  },
+  {
+    "instruction": "Convert the text into a knowledge-base answer.",
+    "input": "Users can reset their password from Settings > Security. Reset links expire after 30 minutes.",
+    "output": "To reset your password, open Settings, go to Security, and request a password reset. The reset link expires after 30 minutes."
+  },
+  {
+    "instruction": "Write a product FAQ answer.",
+    "input": "Does the assistant remember previous messages?",
+    "output": "Yes, the assistant can use Redis-backed memory when configured. If Redis is unavailable, the assistant may continue responding without saved conversation history."
+  },
+  {
+    "instruction": "Summarize sentiment trends.",
+    "input": "Positive: 120, Negative: 45, Neutral: 80.",
+    "output": "Most feedback is positive, with 120 positive responses. Neutral feedback is also significant at 80, while 45 negative responses should be reviewed for recurring issues."
+  },
+  {
+    "instruction": "Write an escalation note.",
+    "input": "Customer reports payment failure on three attempts. Account is enterprise tier. Error code PAY-402.",
+    "output": "Escalation: Enterprise customer is unable to complete payment after three attempts. Error code PAY-402. Please prioritize investigation of payment gateway logs and account billing status."
+  },
+  {
+    "instruction": "Explain hallucination in AI.",
+    "input": "",
+    "output": "A hallucination is when an AI system presents incorrect or unsupported information as if it were true."
+  },
+  {
+    "instruction": "Give a safer answer.",
+    "input": "What is our exact refund policy?",
+    "output": "I need the current refund policy document to answer exactly. Please provide the policy text or connect the knowledge base so I can cite the correct rule."
+  },
+  {
+    "instruction": "Create a concise troubleshooting flow.",
+    "input": "Chat API returns empty responses.",
+    "output": "Check request payload, confirm model service is loaded, inspect server logs, verify tokenizer output, test with a simple prompt, and confirm streaming is not hiding the final response."
+  },
+  {
+    "instruction": "Write a friendly chatbot greeting.",
+    "input": "",
+    "output": "Hi, I am your enterprise AI assistant. How can I help you today?"
+  },
+  {
+    "instruction": "Write a closing support message.",
+    "input": "",
+    "output": "Thanks for reaching out. I will be here if you need help with anything else."
+  },
+  {
+    "instruction": "Answer the user asking for more training data.",
+    "input": "Add more data to train the model.",
+    "output": "I can expand the local instruction and sentiment datasets, then add a refresh script that collects current public data into a reviewable JSON file for retraining."
+  },
+  {
+    "instruction": "Write a concise model limitation.",
+    "input": "",
+    "output": "The assistant can make mistakes, especially when the answer depends on missing, private, or changing information."
+  },
+  {
+    "instruction": "Turn raw feedback into sentiment training JSON.",
+    "input": "Text: The dashboard is fast and easy to use. Label: positive.",
+    "output": "{\"text\":\"The dashboard is fast and easy to use\",\"label\":\"positive\"}"
+  },
+  {
+    "instruction": "Turn raw feedback into sentiment training JSON.",
+    "input": "Text: The export button failed twice today. Label: negative.",
+    "output": "{\"text\":\"The export button failed twice today\",\"label\":\"negative\"}"
+  },
+  {
+    "instruction": "Turn raw feedback into sentiment training JSON.",
+    "input": "Text: The account was created yesterday. Label: neutral.",
+    "output": "{\"text\":\"The account was created yesterday\",\"label\":\"neutral\"}"
+  },
+  {
+    "instruction": "Explain how to evaluate a sentiment classifier.",
+    "input": "",
+    "output": "Use a held-out test set and measure accuracy, precision, recall, and confusion between positive, negative, and neutral labels."
+  },
+  {
+    "instruction": "Create a data cleaning rule.",
+    "input": "Training examples collected from support tickets.",
+    "output": "Remove personal data, secrets, duplicate tickets, automated signatures, tracking IDs, and unsupported labels before using support tickets for training."
+  },
+  {
+    "instruction": "Answer in Tamil-English style.",
+    "input": "App crash aaguthu. Enna pannalam?",
+    "output": "First app restart pannunga, then latest version update iruka check pannunga. Still crash aana, error time and device details share pannunga so issue trace panna mudiyum."
+  },
+  {
+    "instruction": "Answer in simple English.",
+    "input": "What is an API?",
+    "output": "An API is a way for two software systems to talk to each other."
+  },
+  {
+    "instruction": "Create a SQL-safe warning.",
+    "input": "User wants to paste raw customer exports into training data.",
+    "output": "Do not paste raw customer exports into training data. First remove personal information, secrets, internal IDs, and any data that the customer did not approve for model training."
+  },
+  {
+    "instruction": "Generate a short backlog item.",
+    "input": "Need automated dataset validation before training.",
+    "output": "Add dataset validation command that checks required fields, duplicate records, empty outputs, and label balance before training starts."
   }
 ]

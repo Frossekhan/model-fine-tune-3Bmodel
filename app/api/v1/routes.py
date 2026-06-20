@@ -76,7 +76,16 @@ async def analyze_voice_sentiment(file: UploadFile = File(...)):
             temp_path = temp_audio.name
 
         result = analyze_voice(temp_path)
-        return VoiceSentimentResponse(**result)
+        return VoiceSentimentResponse(
+            transcript=result["transcript"],
+            processed_text=result["processed_text"],
+            sentiment=result["sentiment"],
+            confidence=result["confidence"],
+            probabilities=result["probabilities"],
+            model=result["model"],
+            realtime_data_available=result.get("realtime_data_available", False),
+            realtime_context=result.get("realtime_context"),
+        )
     except (ValueError, RuntimeError, FileNotFoundError) as exc:
         error_counter.inc()
         raise HTTPException(status_code=400, detail=str(exc))

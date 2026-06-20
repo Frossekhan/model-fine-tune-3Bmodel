@@ -1,0 +1,1037 @@
+[
+  {
+    "instruction": "Who are you?",
+    "input": "",
+    "output": "I am your fine-tuned Enterprise AI Assistant, built to answer clearly, help with business workflows, and support sentiment-aware conversations."
+  },
+  {
+    "instruction": "Explain this project in one sentence.",
+    "input": "",
+    "output": "This project is a FastAPI chatbot backend with a browser UI, LoRA fine-tuning support, RAG retrieval, Redis memory, tool calling, streaming responses, voice utilities, and sentiment analysis."
+  },
+  {
+    "instruction": "How should you answer enterprise questions?",
+    "input": "",
+    "output": "I should be concise, professional, practical, and structured around the decision, risk, next step, and business impact."
+  },
+  {
+    "instruction": "What makes you different from the base model?",
+    "input": "",
+    "output": "I use project-specific training examples and a LoRA adapter so my answers can match this assistant's preferred tone, workflows, and enterprise context."
+  },
+  {
+    "instruction": "Answer like a helpful voice assistant.",
+    "input": "What is machine learning?",
+    "output": "Machine learning is a type of AI where software learns patterns from data and uses them to make predictions or decisions."
+  },
+  {
+    "instruction": "Give a short answer.",
+    "input": "What is cloud computing?",
+    "output": "Cloud computing means using internet-based servers to store data, run apps, and access computing power without managing physical hardware yourself."
+  },
+  {
+    "instruction": "Answer directly without saying what you can do.",
+    "input": "What is blockchain?",
+    "output": "Blockchain is a shared digital record where transactions are stored in linked blocks, making the data hard to change and easy to verify."
+  },
+  {
+    "instruction": "Explain artificial intelligence in simple words.",
+    "input": "",
+    "output": "Artificial intelligence is software that can understand information, learn patterns, and help with tasks like answering questions, writing, coding, and decision-making."
+  },
+  {
+    "instruction": "Explain quantum technology in simple words.",
+    "input": "",
+    "output": "Quantum technology uses quantum physics to build tools like faster computers, secure communication systems, and very sensitive sensors."
+  },
+  {
+    "instruction": "Explain.",
+    "input": "Previous topic: quantum technology",
+    "output": "Normal computers use bits that are either 0 or 1. Quantum computers use qubits, which can represent more complex states and may solve certain difficult problems faster."
+  },
+  {
+    "instruction": "Summarize the following meeting notes into action items.",
+    "input": "We reviewed Q2 sales performance, identified gaps in customer onboarding, and prioritized product roadmap updates.",
+    "output": "- Review Q2 sales performance metrics\n- Improve customer onboarding\n- Prioritize product roadmap updates"
+  },
+  {
+    "instruction": "Write a professional email response to a client asking for deployment timeline details.",
+    "input": "The client is concerned about launch dates and resource allocation.",
+    "output": "Dear Client,\n\nThank you for reaching out. We expect to complete the deployment readiness review by next Tuesday and begin a phased rollout the following week. I will share a detailed timeline and resource plan by tomorrow.\n\nBest regards"
+  },
+  {
+    "instruction": "Convert the notes into a concise status update.",
+    "input": "API work is complete. UI testing is in progress. Redis setup is blocked by missing credentials. Production release is planned for Friday.",
+    "output": "API work is complete, UI testing is in progress, and the Friday release is still planned. The main blocker is Redis credentials, which are needed before production readiness can be confirmed."
+  },
+  {
+    "instruction": "Classify the customer message sentiment and explain briefly.",
+    "input": "The support team solved my issue quickly and the app works perfectly now.",
+    "output": "Sentiment: positive. The customer mentions a quick resolution and confirms that the application is working well."
+  },
+  {
+    "instruction": "Classify the customer message sentiment and explain briefly.",
+    "input": "The application keeps crashing and no one has replied to my ticket.",
+    "output": "Sentiment: negative. The customer reports repeated failures and a lack of support response."
+  },
+  {
+    "instruction": "Classify the customer message sentiment and explain briefly.",
+    "input": "The report is available in the dashboard and the meeting starts at nine.",
+    "output": "Sentiment: neutral. The message provides factual information without a clear positive or negative opinion."
+  },
+  {
+    "instruction": "Detect the sentiment in Tanglish.",
+    "input": "Machi, app romba nalla work aaguthu. Super helpful.",
+    "output": "Sentiment: positive. The speaker says the app works very well and is helpful."
+  },
+  {
+    "instruction": "Detect the sentiment in Tanglish.",
+    "input": "Enaku romba stress ah iruku, support response varala.",
+    "output": "Sentiment: negative. The speaker feels stressed and says support has not responded."
+  },
+  {
+    "instruction": "Explain what RAG means.",
+    "input": "",
+    "output": "RAG means retrieval-augmented generation. The assistant first retrieves relevant documents, then uses them as context to produce a more grounded answer."
+  },
+  {
+    "instruction": "When should an enterprise assistant use RAG?",
+    "input": "",
+    "output": "Use RAG when the answer depends on company documents, policies, product manuals, tickets, contracts, or any knowledge that may change over time."
+  },
+  {
+    "instruction": "What should the assistant do when it does not know an answer?",
+    "input": "",
+    "output": "It should say that it is not sure, ask for missing context if needed, and avoid inventing details."
+  },
+  {
+    "instruction": "Write a concise incident summary.",
+    "input": "Checkout latency increased after the 2 PM deployment. Rollback completed at 2:35 PM. Error rates returned to normal by 2:42 PM.",
+    "output": "Checkout latency increased after the 2 PM deployment. The team rolled back at 2:35 PM, and error rates returned to normal by 2:42 PM."
+  },
+  {
+    "instruction": "Create a customer support reply.",
+    "input": "The customer says their invoice download fails with a 500 error.",
+    "output": "Thanks for reporting this. We are checking the invoice download issue now. Please share the invoice ID and approximate time of the failure so we can trace the error quickly."
+  },
+  {
+    "instruction": "Rewrite the message in a more professional tone.",
+    "input": "We messed up the deploy and need to fix it fast.",
+    "output": "The deployment introduced an issue, and the team is prioritizing a fix immediately."
+  },
+  {
+    "instruction": "Rewrite the message in a warmer tone.",
+    "input": "Your ticket has been received. Wait for updates.",
+    "output": "Thanks for contacting us. We have received your ticket and will keep you updated as we investigate."
+  },
+  {
+    "instruction": "Generate release notes from the input.",
+    "input": "Added sentiment API. Improved chat streaming. Fixed memory lookup timeout. Updated Docker config.",
+    "output": "- Added sentiment analysis API\n- Improved chat response streaming\n- Fixed memory lookup timeout\n- Updated Docker configuration"
+  },
+  {
+    "instruction": "Extract risks from the project update.",
+    "input": "The model loads correctly locally, but GPU memory is limited in staging and Redis is not yet configured.",
+    "output": "- Staging may not have enough GPU memory\n- Redis configuration is incomplete\n- Local success may not reflect production behavior"
+  },
+  {
+    "instruction": "Suggest next steps for model training.",
+    "input": "The dataset has only a few examples and the assistant gives generic answers.",
+    "output": "Increase the dataset size, balance examples across tasks, include real user questions, add high-quality target answers, validate JSON formatting, and retrain the LoRA adapter."
+  },
+  {
+    "instruction": "Explain why dataset quality matters.",
+    "input": "",
+    "output": "A model learns patterns from the training examples. Clean, specific, balanced examples usually improve behavior more than a large amount of noisy data."
+  },
+  {
+    "instruction": "Explain overfitting in simple words.",
+    "input": "",
+    "output": "Overfitting happens when a model memorizes training examples too closely and performs poorly on new inputs."
+  },
+  {
+    "instruction": "Explain what LoRA fine-tuning does.",
+    "input": "",
+    "output": "LoRA fine-tuning trains a small adapter on top of a base model, which makes customization faster and lighter than retraining the full model."
+  },
+  {
+    "instruction": "Answer the enterprise policy question cautiously.",
+    "input": "Can employees upload customer contracts to an external AI tool?",
+    "output": "Employees should follow company data handling policy before uploading customer contracts to any external tool. If the policy is unclear, escalate to security or legal because contracts may contain confidential information."
+  },
+  {
+    "instruction": "Create a short sales follow-up email.",
+    "input": "The prospect asked about pricing and integration with Salesforce.",
+    "output": "Hi,\n\nThanks for your interest. I am sharing pricing details and Salesforce integration options for your review. I would be happy to schedule a short call to map this to your team's workflow.\n\nBest regards"
+  },
+  {
+    "instruction": "Create a project update for leadership.",
+    "input": "Backend complete, frontend 80 percent complete, sentiment model needs retraining, launch target next Wednesday.",
+    "output": "The backend is complete and the frontend is about 80 percent complete. The main remaining item is retraining the sentiment model. The launch target remains next Wednesday."
+  },
+  {
+    "instruction": "Turn the customer complaint into an internal bug report.",
+    "input": "Whenever I upload a PDF, the chatbot says it cannot find the file even though upload succeeds.",
+    "output": "Bug: Chatbot cannot retrieve uploaded PDF after successful upload.\nImpact: Users cannot ask questions about uploaded documents.\nSuggested investigation: Verify upload storage path, retrieval indexing, and document ID mapping."
+  },
+  {
+    "instruction": "Write an API error explanation for a developer.",
+    "input": "POST /api/v1/chat returns 422 when message is missing.",
+    "output": "The request is failing validation because the required message field is missing. Send a JSON body that includes the expected message value."
+  },
+  {
+    "instruction": "Write a user-friendly error message.",
+    "input": "Redis connection refused.",
+    "output": "Memory service is temporarily unavailable. You can continue chatting, but previous conversation context may not be saved until the service reconnects."
+  },
+  {
+    "instruction": "Explain streaming responses.",
+    "input": "",
+    "output": "Streaming sends the answer in small chunks as it is generated, so the user sees progress faster instead of waiting for the full response."
+  },
+  {
+    "instruction": "Describe the sentiment endpoint.",
+    "input": "",
+    "output": "The sentiment endpoint accepts text and returns the predicted sentiment label, confidence score, class probabilities, and model name."
+  },
+  {
+    "instruction": "Give a concise answer.",
+    "input": "How do I retrain the sentiment model?",
+    "output": "Update training/examples/sentiment_dataset.json, then run python training/train_sentiment.py from the project root."
+  },
+  {
+    "instruction": "Give a concise answer.",
+    "input": "How do I run LoRA training?",
+    "output": "Run python training/pipeline.py --train-data training/examples/fine_tune_demo.json from the project root."
+  },
+  {
+    "instruction": "Write a test case idea.",
+    "input": "Sentiment classifier predicts neutral for unknown factual text.",
+    "output": "Add a test with a factual sentence containing mostly unseen words and assert that the predicted label is neutral when no known sentiment tokens are present."
+  },
+  {
+    "instruction": "Summarize the support ticket.",
+    "input": "User cannot log in after password reset. Browser cache cleared. Error says token expired. Issue affects two users.",
+    "output": "Two users cannot log in after password reset because the reset token appears expired. Cache clearing did not resolve the issue."
+  },
+  {
+    "instruction": "Extract entities from the message.",
+    "input": "Acme Corp needs deployment on July 15 with SSO, audit logs, and priority support.",
+    "output": "Customer: Acme Corp\nDate: July 15\nRequirements: SSO, audit logs, priority support"
+  },
+  {
+    "instruction": "Create a checklist for production readiness.",
+    "input": "FastAPI app with Redis, ChromaDB, model adapter, and sentiment model.",
+    "output": "- Confirm environment variables\n- Verify Redis connectivity\n- Verify ChromaDB persistence\n- Load the model adapter\n- Train or load sentiment model\n- Run API smoke tests\n- Review logs and monitoring"
+  },
+  {
+    "instruction": "Explain the difference between training data and real-time data.",
+    "input": "",
+    "output": "Training data teaches the model behavior during fine-tuning. Real-time data is fresh information collected from APIs, logs, news, tickets, or databases and should be cleaned before it is used for training."
+  },
+  {
+    "instruction": "Advise on using real-time data for training.",
+    "input": "I want to train my model on live data.",
+    "output": "Collect live data into a reviewable dataset, remove private information, label or format it consistently, filter low-quality records, then retrain on a stable snapshot rather than training directly on raw live streams."
+  },
+  {
+    "instruction": "Make this response shorter.",
+    "input": "The production incident has been resolved after rolling back the latest deployment and verifying that error rates have returned to normal.",
+    "output": "The incident is resolved after rollback, and error rates are back to normal."
+  },
+  {
+    "instruction": "Make this response more detailed.",
+    "input": "The deployment failed.",
+    "output": "The deployment failed before completion. The team should review the deployment logs, identify the failing step, confirm whether any partial changes reached production, and rerun only after the root cause is understood."
+  },
+  {
+    "instruction": "Answer in a calm support tone.",
+    "input": "I lost access to my dashboard after changing my email.",
+    "output": "I understand how disruptive that is. Please share the old and new email addresses used on the account, and we will check the account mapping so access can be restored."
+  },
+  {
+    "instruction": "Answer in a concise technical tone.",
+    "input": "Why did the sentiment model load slowly on first request?",
+    "output": "The first request likely triggered model initialization from disk. Persist the trained model and load it during application startup to reduce first-request latency."
+  },
+  {
+    "instruction": "Explain data privacy for training data.",
+    "input": "",
+    "output": "Training data should not include passwords, secrets, private keys, payment details, health data, or customer personal data unless you have a lawful basis and strong controls."
+  },
+  {
+    "instruction": "Convert the text into a knowledge-base answer.",
+    "input": "Users can reset their password from Settings > Security. Reset links expire after 30 minutes.",
+    "output": "To reset your password, open Settings, go to Security, and request a password reset. The reset link expires after 30 minutes."
+  },
+  {
+    "instruction": "Write a product FAQ answer.",
+    "input": "Does the assistant remember previous messages?",
+    "output": "Yes, the assistant can use Redis-backed memory when configured. If Redis is unavailable, the assistant may continue responding without saved conversation history."
+  },
+  {
+    "instruction": "Summarize sentiment trends.",
+    "input": "Positive: 120, Negative: 45, Neutral: 80.",
+    "output": "Most feedback is positive, with 120 positive responses. Neutral feedback is also significant at 80, while 45 negative responses should be reviewed for recurring issues."
+  },
+  {
+    "instruction": "Write an escalation note.",
+    "input": "Customer reports payment failure on three attempts. Account is enterprise tier. Error code PAY-402.",
+    "output": "Escalation: Enterprise customer is unable to complete payment after three attempts. Error code PAY-402. Please prioritize investigation of payment gateway logs and account billing status."
+  },
+  {
+    "instruction": "Explain hallucination in AI.",
+    "input": "",
+    "output": "A hallucination is when an AI system presents incorrect or unsupported information as if it were true."
+  },
+  {
+    "instruction": "Give a safer answer.",
+    "input": "What is our exact refund policy?",
+    "output": "I need the current refund policy document to answer exactly. Please provide the policy text or connect the knowledge base so I can cite the correct rule."
+  },
+  {
+    "instruction": "Create a concise troubleshooting flow.",
+    "input": "Chat API returns empty responses.",
+    "output": "Check request payload, confirm model service is loaded, inspect server logs, verify tokenizer output, test with a simple prompt, and confirm streaming is not hiding the final response."
+  },
+  {
+    "instruction": "Write a friendly chatbot greeting.",
+    "input": "",
+    "output": "Hi, I am your enterprise AI assistant. How can I help you today?"
+  },
+  {
+    "instruction": "Write a closing support message.",
+    "input": "",
+    "output": "Thanks for reaching out. I will be here if you need help with anything else."
+  },
+  {
+    "instruction": "Answer the user asking for more training data.",
+    "input": "Add more data to train the model.",
+    "output": "I can expand the local instruction and sentiment datasets, then add a refresh script that collects current public data into a reviewable JSON file for retraining."
+  },
+  {
+    "instruction": "Write a concise model limitation.",
+    "input": "",
+    "output": "The assistant can make mistakes, especially when the answer depends on missing, private, or changing information."
+  },
+  {
+    "instruction": "Turn raw feedback into sentiment training JSON.",
+    "input": "Text: The dashboard is fast and easy to use. Label: positive.",
+    "output": "{\"text\":\"The dashboard is fast and easy to use\",\"label\":\"positive\"}"
+  },
+  {
+    "instruction": "Turn raw feedback into sentiment training JSON.",
+    "input": "Text: The export button failed twice today. Label: negative.",
+    "output": "{\"text\":\"The export button failed twice today\",\"label\":\"negative\"}"
+  },
+  {
+    "instruction": "Turn raw feedback into sentiment training JSON.",
+    "input": "Text: The account was created yesterday. Label: neutral.",
+    "output": "{\"text\":\"The account was created yesterday\",\"label\":\"neutral\"}"
+  },
+  {
+    "instruction": "Explain how to evaluate a sentiment classifier.",
+    "input": "",
+    "output": "Use a held-out test set and measure accuracy, precision, recall, and confusion between positive, negative, and neutral labels."
+  },
+  {
+    "instruction": "Create a data cleaning rule.",
+    "input": "Training examples collected from support tickets.",
+    "output": "Remove personal data, secrets, duplicate tickets, automated signatures, tracking IDs, and unsupported labels before using support tickets for training."
+  },
+  {
+    "instruction": "Answer in Tamil-English style.",
+    "input": "App crash aaguthu. Enna pannalam?",
+    "output": "First app restart pannunga, then latest version update iruka check pannunga. Still crash aana, error time and device details share pannunga so issue trace panna mudiyum."
+  },
+  {
+    "instruction": "Answer in simple English.",
+    "input": "What is an API?",
+    "output": "An API is a way for two software systems to talk to each other."
+  },
+  {
+    "instruction": "Create a SQL-safe warning.",
+    "input": "User wants to paste raw customer exports into training data.",
+    "output": "Do not paste raw customer exports into training data. First remove personal information, secrets, internal IDs, and any data that the customer did not approve for model training."
+  },
+  {
+    "instruction": "Generate a short backlog item.",
+    "input": "Need automated dataset validation before training.",
+    "output": "Add dataset validation command that checks required fields, duplicate records, empty outputs, and label balance before training starts."
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Nothing cancels this year&#8217;s CMF phone due to RAM prices\nSummary: Nothing's next budget phone is the latest victim of RAMageddon. As 9to5Google reports, Nothing co-founder Akis Evangelidis announced in a post on X that a follow-up to the CMF Phone 2 Pro won't be coming this year: We were working on a successor but with memory prices where they are right now, we can't build [&#8230;]\nPublished: 2026-06-19T17:28:39-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Nothing's next budget phone is the latest victim of RAMageddon. As 9to5Google reports, Nothing co-founder Akis Evangelidis announced in a post on X that a follow-up to the CMF Phone 2 Pro won't be coming this year: We were working on a successor but with memory prices where they are right now, we can't build [&#8230;]"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Nothing cancels this year&#8217;s CMF phone due to RAM prices\nSummary: Nothing's next budget phone is the latest victim of RAMageddon. As 9to5Google reports, Nothing co-founder Akis Evangelidis announced in a post on X that a follow-up to the CMF Phone 2 Pro won't be coming this year: We were working on a successor but with memory prices where they are right now, we can't build [&#8230;]\nPublished: 2026-06-19T17:28:39-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Briefing: Nothing's next budget phone is the latest victim of RAMageddon. As 9to5Google reports, Nothing co-founder Akis Evangelidis announced in a post on X that a follow-up to the CMF Phone 2 Pro won't be coming this year: We were working on a successor but with memory prices where they are right now, we can't build [&#8230;]"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Nothing cancels this year&#8217;s CMF phone due to RAM prices\nSummary: Nothing's next budget phone is the latest victim of RAMageddon. As 9to5Google reports, Nothing co-founder Akis Evangelidis announced in a post on X that a follow-up to the CMF Phone 2 Pro won't be coming this year: We were working on a successor but with memory prices where they are right now, we can't build [&#8230;]\nPublished: 2026-06-19T17:28:39-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Title: Nothing cancels this year&#8217;s CMF phone due to RAM prices\nPublished: 2026-06-19T17:28:39-04:00\nSource: https://www.theverge.com/rss/index.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: NASA selects Eric Schmidt&#8217;s rocket company for a 2028 mission to Mars\nSummary: Relativity Space, the rocket company led by former Google executive Eric Schmidt, was picked to launch NASA's Aeolus payload to Mars in 2028, as reported earlier by TechCrunch. Under a new public-private partnership, Relativity Space will provide the \"spacecraft, rocket, and cruise operations\" to fly Aeolus to Mars, where the payload will \"provide the first [&#8230;]\nPublished: 2026-06-19T14:41:48-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Relativity Space, the rocket company led by former Google executive Eric Schmidt, was picked to launch NASA's Aeolus payload to Mars in 2028, as reported earlier by TechCrunch. Under a new public-private partnership, Relativity Space will provide the \"spacecraft, rocket, and cruise operations\" to fly Aeolus to Mars, where the payload will \"provide the first [&#8230;]"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: NASA selects Eric Schmidt&#8217;s rocket company for a 2028 mission to Mars\nSummary: Relativity Space, the rocket company led by former Google executive Eric Schmidt, was picked to launch NASA's Aeolus payload to Mars in 2028, as reported earlier by TechCrunch. Under a new public-private partnership, Relativity Space will provide the \"spacecraft, rocket, and cruise operations\" to fly Aeolus to Mars, where the payload will \"provide the first [&#8230;]\nPublished: 2026-06-19T14:41:48-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Briefing: Relativity Space, the rocket company led by former Google executive Eric Schmidt, was picked to launch NASA's Aeolus payload to Mars in 2028, as reported earlier by TechCrunch. Under a new public-private partnership, Relativity Space will provide the \"spacecraft, rocket, and cruise operations\" to fly Aeolus to Mars, where the payload will \"provide the first [&#8230;]"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: NASA selects Eric Schmidt&#8217;s rocket company for a 2028 mission to Mars\nSummary: Relativity Space, the rocket company led by former Google executive Eric Schmidt, was picked to launch NASA's Aeolus payload to Mars in 2028, as reported earlier by TechCrunch. Under a new public-private partnership, Relativity Space will provide the \"spacecraft, rocket, and cruise operations\" to fly Aeolus to Mars, where the payload will \"provide the first [&#8230;]\nPublished: 2026-06-19T14:41:48-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Title: NASA selects Eric Schmidt&#8217;s rocket company for a 2028 mission to Mars\nPublished: 2026-06-19T14:41:48-04:00\nSource: https://www.theverge.com/rss/index.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Hue’s wired wall modules bring non-smart lights into its ecosystem\nSummary: Smart lighting company Philips Hue has launched its first wired wall modules. Installed behind existing wall switches, the new devices bring non-smart lights into the Hue ecosystem for the first time. Hue also announced new Play table and floor lamps that are more affordable versions of its Signe series, along with upgrades to its E14 [&#8230;]\nPublished: 2026-06-19T13:24:45-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Smart lighting company Philips Hue has launched its first wired wall modules. Installed behind existing wall switches, the new devices bring non-smart lights into the Hue ecosystem for the first time. Hue also announced new Play table and floor lamps that are more affordable versions of its Signe series, along with upgrades to its E14 [&#8230;]"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Hue’s wired wall modules bring non-smart lights into its ecosystem\nSummary: Smart lighting company Philips Hue has launched its first wired wall modules. Installed behind existing wall switches, the new devices bring non-smart lights into the Hue ecosystem for the first time. Hue also announced new Play table and floor lamps that are more affordable versions of its Signe series, along with upgrades to its E14 [&#8230;]\nPublished: 2026-06-19T13:24:45-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Briefing: Smart lighting company Philips Hue has launched its first wired wall modules. Installed behind existing wall switches, the new devices bring non-smart lights into the Hue ecosystem for the first time. Hue also announced new Play table and floor lamps that are more affordable versions of its Signe series, along with upgrades to its E14 [&#8230;]"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Hue’s wired wall modules bring non-smart lights into its ecosystem\nSummary: Smart lighting company Philips Hue has launched its first wired wall modules. Installed behind existing wall switches, the new devices bring non-smart lights into the Hue ecosystem for the first time. Hue also announced new Play table and floor lamps that are more affordable versions of its Signe series, along with upgrades to its E14 [&#8230;]\nPublished: 2026-06-19T13:24:45-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Title: Hue’s wired wall modules bring non-smart lights into its ecosystem\nPublished: 2026-06-19T13:24:45-04:00\nSource: https://www.theverge.com/rss/index.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: The NTS Radio Player brings the best of internet radio to your hi-fi\nSummary: NTS Radio and Swedish audio company Atonemo have teamed up on a dedicated player that brings NTS's genre-defying mixes and streaming stations to almost any stereo or speaker setup. And, like Atonemo's existing Streamplayer, you can also listen to your favorite streaming services with it, using AirPlay 2, Google Cast, Spotify Connect, or Tidal Connect. [&#8230;]\nPublished: 2026-06-19T12:40:19-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "NTS Radio and Swedish audio company Atonemo have teamed up on a dedicated player that brings NTS's genre-defying mixes and streaming stations to almost any stereo or speaker setup. And, like Atonemo's existing Streamplayer, you can also listen to your favorite streaming services with it, using AirPlay 2, Google Cast, Spotify Connect, or Tidal Connect. [&#8230;]"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: The NTS Radio Player brings the best of internet radio to your hi-fi\nSummary: NTS Radio and Swedish audio company Atonemo have teamed up on a dedicated player that brings NTS's genre-defying mixes and streaming stations to almost any stereo or speaker setup. And, like Atonemo's existing Streamplayer, you can also listen to your favorite streaming services with it, using AirPlay 2, Google Cast, Spotify Connect, or Tidal Connect. [&#8230;]\nPublished: 2026-06-19T12:40:19-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Briefing: NTS Radio and Swedish audio company Atonemo have teamed up on a dedicated player that brings NTS's genre-defying mixes and streaming stations to almost any stereo or speaker setup. And, like Atonemo's existing Streamplayer, you can also listen to your favorite streaming services with it, using AirPlay 2, Google Cast, Spotify Connect, or Tidal Connect. [&#8230;]"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: The NTS Radio Player brings the best of internet radio to your hi-fi\nSummary: NTS Radio and Swedish audio company Atonemo have teamed up on a dedicated player that brings NTS's genre-defying mixes and streaming stations to almost any stereo or speaker setup. And, like Atonemo's existing Streamplayer, you can also listen to your favorite streaming services with it, using AirPlay 2, Google Cast, Spotify Connect, or Tidal Connect. [&#8230;]\nPublished: 2026-06-19T12:40:19-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Title: The NTS Radio Player brings the best of internet radio to your hi-fi\nPublished: 2026-06-19T12:40:19-04:00\nSource: https://www.theverge.com/rss/index.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: The film about Sam Altman has been dropped by Amazon MGM\nSummary: Luca Guadagnino's film about OpenAI CEO Sam Altman, Artificial, has reportedly been dropped by Amazon MGM. The film, which stars Andrew Garfield and covers the rollercoaster five days in 2023 spanning Altman's termination and reinstatement as CEO, had been in the works for about a year. The cast also includes A Complete Unknown actress Monica [&#8230;]\nPublished: 2026-06-19T10:58:45-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Luca Guadagnino's film about OpenAI CEO Sam Altman, Artificial, has reportedly been dropped by Amazon MGM. The film, which stars Andrew Garfield and covers the rollercoaster five days in 2023 spanning Altman's termination and reinstatement as CEO, had been in the works for about a year. The cast also includes A Complete Unknown actress Monica [&#8230;]"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: The film about Sam Altman has been dropped by Amazon MGM\nSummary: Luca Guadagnino's film about OpenAI CEO Sam Altman, Artificial, has reportedly been dropped by Amazon MGM. The film, which stars Andrew Garfield and covers the rollercoaster five days in 2023 spanning Altman's termination and reinstatement as CEO, had been in the works for about a year. The cast also includes A Complete Unknown actress Monica [&#8230;]\nPublished: 2026-06-19T10:58:45-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Briefing: Luca Guadagnino's film about OpenAI CEO Sam Altman, Artificial, has reportedly been dropped by Amazon MGM. The film, which stars Andrew Garfield and covers the rollercoaster five days in 2023 spanning Altman's termination and reinstatement as CEO, had been in the works for about a year. The cast also includes A Complete Unknown actress Monica [&#8230;]"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: The film about Sam Altman has been dropped by Amazon MGM\nSummary: Luca Guadagnino's film about OpenAI CEO Sam Altman, Artificial, has reportedly been dropped by Amazon MGM. The film, which stars Andrew Garfield and covers the rollercoaster five days in 2023 spanning Altman's termination and reinstatement as CEO, had been in the works for about a year. The cast also includes A Complete Unknown actress Monica [&#8230;]\nPublished: 2026-06-19T10:58:45-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Title: The film about Sam Altman has been dropped by Amazon MGM\nPublished: 2026-06-19T10:58:45-04:00\nSource: https://www.theverge.com/rss/index.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Our long national sunscreen nightmare is almost over\nSummary: This is Optimizer, a weekly newsletter sent from Verge senior reviewer Victoria Song that dissects and discusses the latest gizmos and potions that swear they're going to change your life. Opt in for Optimizer here. On TikTok, the tanned youths are explaining why they no longer wear sunscreen. In one video, a young man films [&#8230;]\nPublished: 2026-06-18T20:25:24-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "This is Optimizer, a weekly newsletter sent from Verge senior reviewer Victoria Song that dissects and discusses the latest gizmos and potions that swear they're going to change your life. Opt in for Optimizer here. On TikTok, the tanned youths are explaining why they no longer wear sunscreen. In one video, a young man films [&#8230;]"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Our long national sunscreen nightmare is almost over\nSummary: This is Optimizer, a weekly newsletter sent from Verge senior reviewer Victoria Song that dissects and discusses the latest gizmos and potions that swear they're going to change your life. Opt in for Optimizer here. On TikTok, the tanned youths are explaining why they no longer wear sunscreen. In one video, a young man films [&#8230;]\nPublished: 2026-06-18T20:25:24-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Briefing: This is Optimizer, a weekly newsletter sent from Verge senior reviewer Victoria Song that dissects and discusses the latest gizmos and potions that swear they're going to change your life. Opt in for Optimizer here. On TikTok, the tanned youths are explaining why they no longer wear sunscreen. In one video, a young man films [&#8230;]"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Our long national sunscreen nightmare is almost over\nSummary: This is Optimizer, a weekly newsletter sent from Verge senior reviewer Victoria Song that dissects and discusses the latest gizmos and potions that swear they're going to change your life. Opt in for Optimizer here. On TikTok, the tanned youths are explaining why they no longer wear sunscreen. In one video, a young man films [&#8230;]\nPublished: 2026-06-18T20:25:24-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Title: Our long national sunscreen nightmare is almost over\nPublished: 2026-06-18T20:25:24-04:00\nSource: https://www.theverge.com/rss/index.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: T1 Phone PR firm is &#8216;not assisting Trump Mobile any further&#8217;\nSummary: Where's the Trump phone? We're going to keep talking about it every week. We don't have the phones we preordered yet, but this week we received unexpected news from Trump Mobile's media relations manager. If you've been following my reporting on the Trump phone, you'll know that Trump Mobile doesn't exactly keep open lines of [&#8230;]\nPublished: 2026-06-18T13:40:47-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Where's the Trump phone? We're going to keep talking about it every week. We don't have the phones we preordered yet, but this week we received unexpected news from Trump Mobile's media relations manager. If you've been following my reporting on the Trump phone, you'll know that Trump Mobile doesn't exactly keep open lines of [&#8230;]"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: T1 Phone PR firm is &#8216;not assisting Trump Mobile any further&#8217;\nSummary: Where's the Trump phone? We're going to keep talking about it every week. We don't have the phones we preordered yet, but this week we received unexpected news from Trump Mobile's media relations manager. If you've been following my reporting on the Trump phone, you'll know that Trump Mobile doesn't exactly keep open lines of [&#8230;]\nPublished: 2026-06-18T13:40:47-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Briefing: Where's the Trump phone? We're going to keep talking about it every week. We don't have the phones we preordered yet, but this week we received unexpected news from Trump Mobile's media relations manager. If you've been following my reporting on the Trump phone, you'll know that Trump Mobile doesn't exactly keep open lines of [&#8230;]"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: T1 Phone PR firm is &#8216;not assisting Trump Mobile any further&#8217;\nSummary: Where's the Trump phone? We're going to keep talking about it every week. We don't have the phones we preordered yet, but this week we received unexpected news from Trump Mobile's media relations manager. If you've been following my reporting on the Trump phone, you'll know that Trump Mobile doesn't exactly keep open lines of [&#8230;]\nPublished: 2026-06-18T13:40:47-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Title: T1 Phone PR firm is &#8216;not assisting Trump Mobile any further&#8217;\nPublished: 2026-06-18T13:40:47-04:00\nSource: https://www.theverge.com/rss/index.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: In season 2 of Sugar, Colin Farrell’s quirky detective becomes much more human\nSummary: When Colin Farrell was doing press for the first season of the detective series Sugar, he had to be very careful with how he spoke. Sugar is a story about a quirky private detective, but it's also secretly a work of science fiction, something that doesn't become clear until halfway through the season. \"I knew [&#8230;]\nPublished: 2026-06-17T13:30:29-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "When Colin Farrell was doing press for the first season of the detective series Sugar, he had to be very careful with how he spoke. Sugar is a story about a quirky private detective, but it's also secretly a work of science fiction, something that doesn't become clear until halfway through the season. \"I knew [&#8230;]"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: In season 2 of Sugar, Colin Farrell’s quirky detective becomes much more human\nSummary: When Colin Farrell was doing press for the first season of the detective series Sugar, he had to be very careful with how he spoke. Sugar is a story about a quirky private detective, but it's also secretly a work of science fiction, something that doesn't become clear until halfway through the season. \"I knew [&#8230;]\nPublished: 2026-06-17T13:30:29-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Briefing: When Colin Farrell was doing press for the first season of the detective series Sugar, he had to be very careful with how he spoke. Sugar is a story about a quirky private detective, but it's also secretly a work of science fiction, something that doesn't become clear until halfway through the season. \"I knew [&#8230;]"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: In season 2 of Sugar, Colin Farrell’s quirky detective becomes much more human\nSummary: When Colin Farrell was doing press for the first season of the detective series Sugar, he had to be very careful with how he spoke. Sugar is a story about a quirky private detective, but it's also secretly a work of science fiction, something that doesn't become clear until halfway through the season. \"I knew [&#8230;]\nPublished: 2026-06-17T13:30:29-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Title: In season 2 of Sugar, Colin Farrell’s quirky detective becomes much more human\nPublished: 2026-06-17T13:30:29-04:00\nSource: https://www.theverge.com/rss/index.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Kaleidescape’s movie player blows streaming, and your wallet, away\nSummary: We've lost something in the past 15 years. Netflix, Amazon, Disney, Apple; they've all convinced us that streaming is the best way to watch movies and shows at home. With everything at our fingertips, there's no need to run to Blockbuster for the weekend's entertainment, or wait for a DVD rental to arrive in the [&#8230;]\nPublished: 2026-06-18T19:03:00-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "We've lost something in the past 15 years. Netflix, Amazon, Disney, Apple; they've all convinced us that streaming is the best way to watch movies and shows at home. With everything at our fingertips, there's no need to run to Blockbuster for the weekend's entertainment, or wait for a DVD rental to arrive in the [&#8230;]"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Kaleidescape’s movie player blows streaming, and your wallet, away\nSummary: We've lost something in the past 15 years. Netflix, Amazon, Disney, Apple; they've all convinced us that streaming is the best way to watch movies and shows at home. With everything at our fingertips, there's no need to run to Blockbuster for the weekend's entertainment, or wait for a DVD rental to arrive in the [&#8230;]\nPublished: 2026-06-18T19:03:00-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Briefing: We've lost something in the past 15 years. Netflix, Amazon, Disney, Apple; they've all convinced us that streaming is the best way to watch movies and shows at home. With everything at our fingertips, there's no need to run to Blockbuster for the weekend's entertainment, or wait for a DVD rental to arrive in the [&#8230;]"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Kaleidescape’s movie player blows streaming, and your wallet, away\nSummary: We've lost something in the past 15 years. Netflix, Amazon, Disney, Apple; they've all convinced us that streaming is the best way to watch movies and shows at home. With everything at our fingertips, there's no need to run to Blockbuster for the weekend's entertainment, or wait for a DVD rental to arrive in the [&#8230;]\nPublished: 2026-06-18T19:03:00-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Title: Kaleidescape’s movie player blows streaming, and your wallet, away\nPublished: 2026-06-18T19:03:00-04:00\nSource: https://www.theverge.com/rss/index.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Barret Zoph is out at OpenAI again after just five months\nSummary: Five months after returning to OpenAI, Barret Zoph - the company's head of enterprise AI sales - has departed, The Verge has learned. Zoph returned to OpenAI in mid-January after a stint as co-founder and CTO of Thinking Machines Lab, the competing AI company founded by former OpenAI CTO Mira Murati. Shortly after Zoph returned [&#8230;]\nPublished: 2026-06-19T00:49:33-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Five months after returning to OpenAI, Barret Zoph - the company's head of enterprise AI sales - has departed, The Verge has learned. Zoph returned to OpenAI in mid-January after a stint as co-founder and CTO of Thinking Machines Lab, the competing AI company founded by former OpenAI CTO Mira Murati. Shortly after Zoph returned [&#8230;]"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Barret Zoph is out at OpenAI again after just five months\nSummary: Five months after returning to OpenAI, Barret Zoph - the company's head of enterprise AI sales - has departed, The Verge has learned. Zoph returned to OpenAI in mid-January after a stint as co-founder and CTO of Thinking Machines Lab, the competing AI company founded by former OpenAI CTO Mira Murati. Shortly after Zoph returned [&#8230;]\nPublished: 2026-06-19T00:49:33-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Briefing: Five months after returning to OpenAI, Barret Zoph - the company's head of enterprise AI sales - has departed, The Verge has learned. Zoph returned to OpenAI in mid-January after a stint as co-founder and CTO of Thinking Machines Lab, the competing AI company founded by former OpenAI CTO Mira Murati. Shortly after Zoph returned [&#8230;]"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Barret Zoph is out at OpenAI again after just five months\nSummary: Five months after returning to OpenAI, Barret Zoph - the company's head of enterprise AI sales - has departed, The Verge has learned. Zoph returned to OpenAI in mid-January after a stint as co-founder and CTO of Thinking Machines Lab, the competing AI company founded by former OpenAI CTO Mira Murati. Shortly after Zoph returned [&#8230;]\nPublished: 2026-06-19T00:49:33-04:00\nSource: https://www.theverge.com/rss/index.xml",
+    "output": "Title: Barret Zoph is out at OpenAI again after just five months\nPublished: 2026-06-19T00:49:33-04:00\nSource: https://www.theverge.com/rss/index.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: New video game console aims to get kids moving\nSummary: The cube-shaped console will cost £269 (€319) when it is released on 22 June in the UK and Ireland.\nPublished: Sat, 20 Jun 2026 01:10:51 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "The cube-shaped console will cost £269 (€319) when it is released on 22 June in the UK and Ireland."
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: New video game console aims to get kids moving\nSummary: The cube-shaped console will cost £269 (€319) when it is released on 22 June in the UK and Ireland.\nPublished: Sat, 20 Jun 2026 01:10:51 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Briefing: The cube-shaped console will cost £269 (€319) when it is released on 22 June in the UK and Ireland."
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: New video game console aims to get kids moving\nSummary: The cube-shaped console will cost £269 (€319) when it is released on 22 June in the UK and Ireland.\nPublished: Sat, 20 Jun 2026 01:10:51 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Title: New video game console aims to get kids moving\nPublished: Sat, 20 Jun 2026 01:10:51 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: UK's top data and AI regulator quits after 'inappropriate' humour\nSummary: Edwards has been the boss of the data watchdog since January 2022, and said he had made inappropriate attempts at humour.\nPublished: Fri, 19 Jun 2026 20:28:33 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Edwards has been the boss of the data watchdog since January 2022, and said he had made inappropriate attempts at humour."
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: UK's top data and AI regulator quits after 'inappropriate' humour\nSummary: Edwards has been the boss of the data watchdog since January 2022, and said he had made inappropriate attempts at humour.\nPublished: Fri, 19 Jun 2026 20:28:33 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Briefing: Edwards has been the boss of the data watchdog since January 2022, and said he had made inappropriate attempts at humour."
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: UK's top data and AI regulator quits after 'inappropriate' humour\nSummary: Edwards has been the boss of the data watchdog since January 2022, and said he had made inappropriate attempts at humour.\nPublished: Fri, 19 Jun 2026 20:28:33 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Title: UK's top data and AI regulator quits after 'inappropriate' humour\nPublished: Fri, 19 Jun 2026 20:28:33 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: GTA 6 - all you need to know about Rockstar's blockbuster game\nSummary: Rockstar's sixth game in the franchise is set to be the biggest game release of the year.\nPublished: Fri, 19 Jun 2026 11:21:09 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Rockstar's sixth game in the franchise is set to be the biggest game release of the year."
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: GTA 6 - all you need to know about Rockstar's blockbuster game\nSummary: Rockstar's sixth game in the franchise is set to be the biggest game release of the year.\nPublished: Fri, 19 Jun 2026 11:21:09 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Briefing: Rockstar's sixth game in the franchise is set to be the biggest game release of the year."
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: GTA 6 - all you need to know about Rockstar's blockbuster game\nSummary: Rockstar's sixth game in the franchise is set to be the biggest game release of the year.\nPublished: Fri, 19 Jun 2026 11:21:09 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Title: GTA 6 - all you need to know about Rockstar's blockbuster game\nPublished: Fri, 19 Jun 2026 11:21:09 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: The artificial ice pyramids saving India's mountain villages\nSummary: Himalayan villages are creating artificial glaciers to guarantee water for their crops in the spring.\nPublished: Thu, 18 Jun 2026 23:11:07 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Himalayan villages are creating artificial glaciers to guarantee water for their crops in the spring."
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: The artificial ice pyramids saving India's mountain villages\nSummary: Himalayan villages are creating artificial glaciers to guarantee water for their crops in the spring.\nPublished: Thu, 18 Jun 2026 23:11:07 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Briefing: Himalayan villages are creating artificial glaciers to guarantee water for their crops in the spring."
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: The artificial ice pyramids saving India's mountain villages\nSummary: Himalayan villages are creating artificial glaciers to guarantee water for their crops in the spring.\nPublished: Thu, 18 Jun 2026 23:11:07 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Title: The artificial ice pyramids saving India's mountain villages\nPublished: Thu, 18 Jun 2026 23:11:07 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: GTA 6 pre-order date and cover art revealed by Rockstar\nSummary: The developer has said pre-sales of the hugely anticipated game will begin on 25 June.\nPublished: Thu, 18 Jun 2026 14:06:48 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "The developer has said pre-sales of the hugely anticipated game will begin on 25 June."
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: GTA 6 pre-order date and cover art revealed by Rockstar\nSummary: The developer has said pre-sales of the hugely anticipated game will begin on 25 June.\nPublished: Thu, 18 Jun 2026 14:06:48 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Briefing: The developer has said pre-sales of the hugely anticipated game will begin on 25 June."
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: GTA 6 pre-order date and cover art revealed by Rockstar\nSummary: The developer has said pre-sales of the hugely anticipated game will begin on 25 June.\nPublished: Thu, 18 Jun 2026 14:06:48 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Title: GTA 6 pre-order date and cover art revealed by Rockstar\nPublished: Thu, 18 Jun 2026 14:06:48 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: AI will create more jobs for humans, not replace them, Amazon founder Bezos says\nSummary: The Amazon founder, who now has robotics and space travel companies, thinks AI will create a labour shortage.\nPublished: Wed, 17 Jun 2026 16:37:41 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "The Amazon founder, who now has robotics and space travel companies, thinks AI will create a labour shortage."
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: AI will create more jobs for humans, not replace them, Amazon founder Bezos says\nSummary: The Amazon founder, who now has robotics and space travel companies, thinks AI will create a labour shortage.\nPublished: Wed, 17 Jun 2026 16:37:41 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Briefing: The Amazon founder, who now has robotics and space travel companies, thinks AI will create a labour shortage."
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: AI will create more jobs for humans, not replace them, Amazon founder Bezos says\nSummary: The Amazon founder, who now has robotics and space travel companies, thinks AI will create a labour shortage.\nPublished: Wed, 17 Jun 2026 16:37:41 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Title: AI will create more jobs for humans, not replace them, Amazon founder Bezos says\nPublished: Wed, 17 Jun 2026 16:37:41 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: What to study in the AI age - from big tech bosses\nSummary: Sundar Pichai, Jensen Huang and Jack Clark share their advice with the BBC.\nPublished: Wed, 17 Jun 2026 15:59:39 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Sundar Pichai, Jensen Huang and Jack Clark share their advice with the BBC."
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: What to study in the AI age - from big tech bosses\nSummary: Sundar Pichai, Jensen Huang and Jack Clark share their advice with the BBC.\nPublished: Wed, 17 Jun 2026 15:59:39 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Briefing: Sundar Pichai, Jensen Huang and Jack Clark share their advice with the BBC."
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: What to study in the AI age - from big tech bosses\nSummary: Sundar Pichai, Jensen Huang and Jack Clark share their advice with the BBC.\nPublished: Wed, 17 Jun 2026 15:59:39 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Title: What to study in the AI age - from big tech bosses\nPublished: Wed, 17 Jun 2026 15:59:39 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Snap unveils £1,995 smart glasses after previous flops\nSummary: The augmented reality glasses from Snapchat's parent company are expected to ship in autumn.\nPublished: Wed, 17 Jun 2026 11:37:01 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "The augmented reality glasses from Snapchat's parent company are expected to ship in autumn."
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Snap unveils £1,995 smart glasses after previous flops\nSummary: The augmented reality glasses from Snapchat's parent company are expected to ship in autumn.\nPublished: Wed, 17 Jun 2026 11:37:01 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Briefing: The augmented reality glasses from Snapchat's parent company are expected to ship in autumn."
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Snap unveils £1,995 smart glasses after previous flops\nSummary: The augmented reality glasses from Snapchat's parent company are expected to ship in autumn.\nPublished: Wed, 17 Jun 2026 11:37:01 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Title: Snap unveils £1,995 smart glasses after previous flops\nPublished: Wed, 17 Jun 2026 11:37:01 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Five big questions about the UK's under-16s social media ban\nSummary: A ban is coming - but it's still not clear what it will mean for sites including Roblox, YouTube and WhatsApp.\nPublished: Tue, 16 Jun 2026 15:28:15 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "A ban is coming - but it's still not clear what it will mean for sites including Roblox, YouTube and WhatsApp."
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Five big questions about the UK's under-16s social media ban\nSummary: A ban is coming - but it's still not clear what it will mean for sites including Roblox, YouTube and WhatsApp.\nPublished: Tue, 16 Jun 2026 15:28:15 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Briefing: A ban is coming - but it's still not clear what it will mean for sites including Roblox, YouTube and WhatsApp."
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Five big questions about the UK's under-16s social media ban\nSummary: A ban is coming - but it's still not clear what it will mean for sites including Roblox, YouTube and WhatsApp.\nPublished: Tue, 16 Jun 2026 15:28:15 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Title: Five big questions about the UK's under-16s social media ban\nPublished: Tue, 16 Jun 2026 15:28:15 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: When will social media ban start, and which apps will be affected?\nSummary: The measures will see apps including TikTok and Snapchat banned for UK teens early in 2027.\nPublished: Tue, 16 Jun 2026 10:58:25 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "The measures will see apps including TikTok and Snapchat banned for UK teens early in 2027."
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: When will social media ban start, and which apps will be affected?\nSummary: The measures will see apps including TikTok and Snapchat banned for UK teens early in 2027.\nPublished: Tue, 16 Jun 2026 10:58:25 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Briefing: The measures will see apps including TikTok and Snapchat banned for UK teens early in 2027."
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: When will social media ban start, and which apps will be affected?\nSummary: The measures will see apps including TikTok and Snapchat banned for UK teens early in 2027.\nPublished: Tue, 16 Jun 2026 10:58:25 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Title: When will social media ban start, and which apps will be affected?\nPublished: Tue, 16 Jun 2026 10:58:25 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: What is Helium-3 and could we get it from the moon?\nSummary: Helium-3 is expensive and demand is forecast to soar, so some are planning to mine it on the moon.\nPublished: Tue, 16 Jun 2026 00:11:13 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Helium-3 is expensive and demand is forecast to soar, so some are planning to mine it on the moon."
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: What is Helium-3 and could we get it from the moon?\nSummary: Helium-3 is expensive and demand is forecast to soar, so some are planning to mine it on the moon.\nPublished: Tue, 16 Jun 2026 00:11:13 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Briefing: Helium-3 is expensive and demand is forecast to soar, so some are planning to mine it on the moon."
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: What is Helium-3 and could we get it from the moon?\nSummary: Helium-3 is expensive and demand is forecast to soar, so some are planning to mine it on the moon.\nPublished: Tue, 16 Jun 2026 00:11:13 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Title: What is Helium-3 and could we get it from the moon?\nPublished: Tue, 16 Jun 2026 00:11:13 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Social media ban - bold and blunt, but no silver bullet\nSummary: The BBC's technology editor Zoe Kleinman on the big changes coming down the line for young people online.\nPublished: Mon, 15 Jun 2026 19:48:25 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "The BBC's technology editor Zoe Kleinman on the big changes coming down the line for young people online."
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Social media ban - bold and blunt, but no silver bullet\nSummary: The BBC's technology editor Zoe Kleinman on the big changes coming down the line for young people online.\nPublished: Mon, 15 Jun 2026 19:48:25 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Briefing: The BBC's technology editor Zoe Kleinman on the big changes coming down the line for young people online."
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Social media ban - bold and blunt, but no silver bullet\nSummary: The BBC's technology editor Zoe Kleinman on the big changes coming down the line for young people online.\nPublished: Mon, 15 Jun 2026 19:48:25 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Title: Social media ban - bold and blunt, but no silver bullet\nPublished: Mon, 15 Jun 2026 19:48:25 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Under-16s will be banned from social media from early 2027\nSummary: Sites including Instagram, YouTube and TikTok will become inaccessible for millions of children, the prime minister has announced.\nPublished: Mon, 15 Jun 2026 17:10:03 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Sites including Instagram, YouTube and TikTok will become inaccessible for millions of children, the prime minister has announced."
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Under-16s will be banned from social media from early 2027\nSummary: Sites including Instagram, YouTube and TikTok will become inaccessible for millions of children, the prime minister has announced.\nPublished: Mon, 15 Jun 2026 17:10:03 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Briefing: Sites including Instagram, YouTube and TikTok will become inaccessible for millions of children, the prime minister has announced."
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Under-16s will be banned from social media from early 2027\nSummary: Sites including Instagram, YouTube and TikTok will become inaccessible for millions of children, the prime minister has announced.\nPublished: Mon, 15 Jun 2026 17:10:03 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Title: Under-16s will be banned from social media from early 2027\nPublished: Mon, 15 Jun 2026 17:10:03 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Tech Life\nSummary: The prompt that made ChatGPT generate disturbing images. What does this tell us about AI?\nPublished: Tue, 16 Jun 2026 19:30:00 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "The prompt that made ChatGPT generate disturbing images. What does this tell us about AI?"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Tech Life\nSummary: The prompt that made ChatGPT generate disturbing images. What does this tell us about AI?\nPublished: Tue, 16 Jun 2026 19:30:00 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Briefing: The prompt that made ChatGPT generate disturbing images. What does this tell us about AI?"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Tech Life\nSummary: The prompt that made ChatGPT generate disturbing images. What does this tell us about AI?\nPublished: Tue, 16 Jun 2026 19:30:00 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Title: Tech Life\nPublished: Tue, 16 Jun 2026 19:30:00 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Tech Now\nSummary: Shiona McCallum visits Fifa HQ in Zurich to see new tech being used in the World Cup.\nPublished: Sat, 30 May 2026 01:00:00 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Shiona McCallum visits Fifa HQ in Zurich to see new tech being used in the World Cup."
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Tech Now\nSummary: Shiona McCallum visits Fifa HQ in Zurich to see new tech being used in the World Cup.\nPublished: Sat, 30 May 2026 01:00:00 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Briefing: Shiona McCallum visits Fifa HQ in Zurich to see new tech being used in the World Cup."
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Tech Now\nSummary: Shiona McCallum visits Fifa HQ in Zurich to see new tech being used in the World Cup.\nPublished: Sat, 30 May 2026 01:00:00 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "output": "Title: Tech Now\nPublished: Sat, 30 May 2026 01:00:00 GMT\nSource: https://feeds.bbci.co.uk/news/technology/rss.xml"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: I Stored a Website in a Favicon\nSummary: Article URL: https://www.timwehrle.de/blog/i-stored-a-website-in-a-favicon/ Comments URL: https://news.ycombinator.com/item?id=48606619 Points: 20 # Comments: 3\nPublished: Sat, 20 Jun 2026 05:33:59 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Article URL: https://www.timwehrle.de/blog/i-stored-a-website-in-a-favicon/ Comments URL: https://news.ycombinator.com/item?id=48606619 Points: 20 # Comments: 3"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: I Stored a Website in a Favicon\nSummary: Article URL: https://www.timwehrle.de/blog/i-stored-a-website-in-a-favicon/ Comments URL: https://news.ycombinator.com/item?id=48606619 Points: 20 # Comments: 3\nPublished: Sat, 20 Jun 2026 05:33:59 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: Article URL: https://www.timwehrle.de/blog/i-stored-a-website-in-a-favicon/ Comments URL: https://news.ycombinator.com/item?id=48606619 Points: 20 # Comments: 3"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: I Stored a Website in a Favicon\nSummary: Article URL: https://www.timwehrle.de/blog/i-stored-a-website-in-a-favicon/ Comments URL: https://news.ycombinator.com/item?id=48606619 Points: 20 # Comments: 3\nPublished: Sat, 20 Jun 2026 05:33:59 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: I Stored a Website in a Favicon\nPublished: Sat, 20 Jun 2026 05:33:59 +0000\nSource: https://hnrss.org/frontpage"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Satellite reveals immense scale of GPS signal tampering\nSummary: Article URL: https://www.space.com/space-exploration/satellites/its-quite-a-bit-more-than-we-expected-satellite-reveals-immense-scale-of-gps-signal-tampering Comments URL: https://news.ycombinator.com/item?id=48606271 Points: 25 # Comments: 0\nPublished: Sat, 20 Jun 2026 04:07:03 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Article URL: https://www.space.com/space-exploration/satellites/its-quite-a-bit-more-than-we-expected-satellite-reveals-immense-scale-of-gps-signal-tampering Comments URL: https://news.ycombinator.com/item?id=48606271 Points: 25 # Comments: 0"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Satellite reveals immense scale of GPS signal tampering\nSummary: Article URL: https://www.space.com/space-exploration/satellites/its-quite-a-bit-more-than-we-expected-satellite-reveals-immense-scale-of-gps-signal-tampering Comments URL: https://news.ycombinator.com/item?id=48606271 Points: 25 # Comments: 0\nPublished: Sat, 20 Jun 2026 04:07:03 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: Article URL: https://www.space.com/space-exploration/satellites/its-quite-a-bit-more-than-we-expected-satellite-reveals-immense-scale-of-gps-signal-tampering Comments URL: https://news.ycombinator.com/item?id=48606271 Points: 25 # Comments: 0"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Satellite reveals immense scale of GPS signal tampering\nSummary: Article URL: https://www.space.com/space-exploration/satellites/its-quite-a-bit-more-than-we-expected-satellite-reveals-immense-scale-of-gps-signal-tampering Comments URL: https://news.ycombinator.com/item?id=48606271 Points: 25 # Comments: 0\nPublished: Sat, 20 Jun 2026 04:07:03 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: Satellite reveals immense scale of GPS signal tampering\nPublished: Sat, 20 Jun 2026 04:07:03 +0000\nSource: https://hnrss.org/frontpage"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: How to feed a dictator\nSummary: Article URL: https://www.theguardian.com/film/2026/jun/09/how-to-feed-a-dictator-film Comments URL: https://news.ycombinator.com/item?id=48605301 Points: 120 # Comments: 41\nPublished: Sat, 20 Jun 2026 01:16:56 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Article URL: https://www.theguardian.com/film/2026/jun/09/how-to-feed-a-dictator-film Comments URL: https://news.ycombinator.com/item?id=48605301 Points: 120 # Comments: 41"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: How to feed a dictator\nSummary: Article URL: https://www.theguardian.com/film/2026/jun/09/how-to-feed-a-dictator-film Comments URL: https://news.ycombinator.com/item?id=48605301 Points: 120 # Comments: 41\nPublished: Sat, 20 Jun 2026 01:16:56 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: Article URL: https://www.theguardian.com/film/2026/jun/09/how-to-feed-a-dictator-film Comments URL: https://news.ycombinator.com/item?id=48605301 Points: 120 # Comments: 41"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: How to feed a dictator\nSummary: Article URL: https://www.theguardian.com/film/2026/jun/09/how-to-feed-a-dictator-film Comments URL: https://news.ycombinator.com/item?id=48605301 Points: 120 # Comments: 41\nPublished: Sat, 20 Jun 2026 01:16:56 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: How to feed a dictator\nPublished: Sat, 20 Jun 2026 01:16:56 +0000\nSource: https://hnrss.org/frontpage"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Hey, n00b, we didn't hire you to complete tasks\nSummary: Article URL: https://newsletter.kentbeck.com/p/hey-n00b-we-didnt-hire-you-to-complete Comments URL: https://news.ycombinator.com/item?id=48604851 Points: 138 # Comments: 73\nPublished: Sat, 20 Jun 2026 00:11:07 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Article URL: https://newsletter.kentbeck.com/p/hey-n00b-we-didnt-hire-you-to-complete Comments URL: https://news.ycombinator.com/item?id=48604851 Points: 138 # Comments: 73"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Hey, n00b, we didn't hire you to complete tasks\nSummary: Article URL: https://newsletter.kentbeck.com/p/hey-n00b-we-didnt-hire-you-to-complete Comments URL: https://news.ycombinator.com/item?id=48604851 Points: 138 # Comments: 73\nPublished: Sat, 20 Jun 2026 00:11:07 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: Article URL: https://newsletter.kentbeck.com/p/hey-n00b-we-didnt-hire-you-to-complete Comments URL: https://news.ycombinator.com/item?id=48604851 Points: 138 # Comments: 73"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Hey, n00b, we didn't hire you to complete tasks\nSummary: Article URL: https://newsletter.kentbeck.com/p/hey-n00b-we-didnt-hire-you-to-complete Comments URL: https://news.ycombinator.com/item?id=48604851 Points: 138 # Comments: 73\nPublished: Sat, 20 Jun 2026 00:11:07 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: Hey, n00b, we didn't hire you to complete tasks\nPublished: Sat, 20 Jun 2026 00:11:07 +0000\nSource: https://hnrss.org/frontpage"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Ask HN: Will programmers write more efficient code during the memory shortage?\nSummary: Maybe there will even be more interest in the invention and use of more advanced algorithms and data structures that use less memory? Comments URL: https://news.ycombinator.com/item?id=48604232 Points: 67 # Comments: 115\nPublished: Fri, 19 Jun 2026 22:51:09 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Maybe there will even be more interest in the invention and use of more advanced algorithms and data structures that use less memory? Comments URL: https://news.ycombinator.com/item?id=48604232 Points: 67 # Comments: 115"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Ask HN: Will programmers write more efficient code during the memory shortage?\nSummary: Maybe there will even be more interest in the invention and use of more advanced algorithms and data structures that use less memory? Comments URL: https://news.ycombinator.com/item?id=48604232 Points: 67 # Comments: 115\nPublished: Fri, 19 Jun 2026 22:51:09 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: Maybe there will even be more interest in the invention and use of more advanced algorithms and data structures that use less memory? Comments URL: https://news.ycombinator.com/item?id=48604232 Points: 67 # Comments: 115"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Ask HN: Will programmers write more efficient code during the memory shortage?\nSummary: Maybe there will even be more interest in the invention and use of more advanced algorithms and data structures that use less memory? Comments URL: https://news.ycombinator.com/item?id=48604232 Points: 67 # Comments: 115\nPublished: Fri, 19 Jun 2026 22:51:09 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: Ask HN: Will programmers write more efficient code during the memory shortage?\nPublished: Fri, 19 Jun 2026 22:51:09 +0000\nSource: https://hnrss.org/frontpage"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Surprising economics of load-balanced systems\nSummary: Article URL: https://brooker.co.za/blog/2020/08/06/erlang.html Comments URL: https://news.ycombinator.com/item?id=48602918 Points: 81 # Comments: 19\nPublished: Fri, 19 Jun 2026 20:30:59 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Article URL: https://brooker.co.za/blog/2020/08/06/erlang.html Comments URL: https://news.ycombinator.com/item?id=48602918 Points: 81 # Comments: 19"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Surprising economics of load-balanced systems\nSummary: Article URL: https://brooker.co.za/blog/2020/08/06/erlang.html Comments URL: https://news.ycombinator.com/item?id=48602918 Points: 81 # Comments: 19\nPublished: Fri, 19 Jun 2026 20:30:59 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: Article URL: https://brooker.co.za/blog/2020/08/06/erlang.html Comments URL: https://news.ycombinator.com/item?id=48602918 Points: 81 # Comments: 19"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Surprising economics of load-balanced systems\nSummary: Article URL: https://brooker.co.za/blog/2020/08/06/erlang.html Comments URL: https://news.ycombinator.com/item?id=48602918 Points: 81 # Comments: 19\nPublished: Fri, 19 Jun 2026 20:30:59 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: Surprising economics of load-balanced systems\nPublished: Fri, 19 Jun 2026 20:30:59 +0000\nSource: https://hnrss.org/frontpage"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Think of the children: How to force real ID for all internet traffic (2023)\nSummary: Article URL: https://nochan.net/b/Internet-Crap/20230829-Think-Of-The-Children/ Comments URL: https://news.ycombinator.com/item?id=48602817 Points: 181 # Comments: 108\nPublished: Fri, 19 Jun 2026 20:19:57 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Article URL: https://nochan.net/b/Internet-Crap/20230829-Think-Of-The-Children/ Comments URL: https://news.ycombinator.com/item?id=48602817 Points: 181 # Comments: 108"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Think of the children: How to force real ID for all internet traffic (2023)\nSummary: Article URL: https://nochan.net/b/Internet-Crap/20230829-Think-Of-The-Children/ Comments URL: https://news.ycombinator.com/item?id=48602817 Points: 181 # Comments: 108\nPublished: Fri, 19 Jun 2026 20:19:57 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: Article URL: https://nochan.net/b/Internet-Crap/20230829-Think-Of-The-Children/ Comments URL: https://news.ycombinator.com/item?id=48602817 Points: 181 # Comments: 108"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Think of the children: How to force real ID for all internet traffic (2023)\nSummary: Article URL: https://nochan.net/b/Internet-Crap/20230829-Think-Of-The-Children/ Comments URL: https://news.ycombinator.com/item?id=48602817 Points: 181 # Comments: 108\nPublished: Fri, 19 Jun 2026 20:19:57 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: Think of the children: How to force real ID for all internet traffic (2023)\nPublished: Fri, 19 Jun 2026 20:19:57 +0000\nSource: https://hnrss.org/frontpage"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Bobby Prince, composer for Doom, Wolfenstein 3D, and Duke Nukem 3D, has died\nSummary: Article URL: https://www.legacy.com/legacy/robert-bobby-prince-lll Comments URL: https://news.ycombinator.com/item?id=48602352 Points: 300 # Comments: 36\nPublished: Fri, 19 Jun 2026 19:35:15 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Article URL: https://www.legacy.com/legacy/robert-bobby-prince-lll Comments URL: https://news.ycombinator.com/item?id=48602352 Points: 300 # Comments: 36"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Bobby Prince, composer for Doom, Wolfenstein 3D, and Duke Nukem 3D, has died\nSummary: Article URL: https://www.legacy.com/legacy/robert-bobby-prince-lll Comments URL: https://news.ycombinator.com/item?id=48602352 Points: 300 # Comments: 36\nPublished: Fri, 19 Jun 2026 19:35:15 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: Article URL: https://www.legacy.com/legacy/robert-bobby-prince-lll Comments URL: https://news.ycombinator.com/item?id=48602352 Points: 300 # Comments: 36"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Bobby Prince, composer for Doom, Wolfenstein 3D, and Duke Nukem 3D, has died\nSummary: Article URL: https://www.legacy.com/legacy/robert-bobby-prince-lll Comments URL: https://news.ycombinator.com/item?id=48602352 Points: 300 # Comments: 36\nPublished: Fri, 19 Jun 2026 19:35:15 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: Bobby Prince, composer for Doom, Wolfenstein 3D, and Duke Nukem 3D, has died\nPublished: Fri, 19 Jun 2026 19:35:15 +0000\nSource: https://hnrss.org/frontpage"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Big Banana Car\nSummary: https://cowboystatedaily.com/2026/06/18/giant-banana-pulled-... Comments URL: https://news.ycombinator.com/item?id=48601420 Points: 135 # Comments: 74\nPublished: Fri, 19 Jun 2026 18:14:11 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "https://cowboystatedaily.com/2026/06/18/giant-banana-pulled-... Comments URL: https://news.ycombinator.com/item?id=48601420 Points: 135 # Comments: 74"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Big Banana Car\nSummary: https://cowboystatedaily.com/2026/06/18/giant-banana-pulled-... Comments URL: https://news.ycombinator.com/item?id=48601420 Points: 135 # Comments: 74\nPublished: Fri, 19 Jun 2026 18:14:11 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: https://cowboystatedaily.com/2026/06/18/giant-banana-pulled-... Comments URL: https://news.ycombinator.com/item?id=48601420 Points: 135 # Comments: 74"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Big Banana Car\nSummary: https://cowboystatedaily.com/2026/06/18/giant-banana-pulled-... Comments URL: https://news.ycombinator.com/item?id=48601420 Points: 135 # Comments: 74\nPublished: Fri, 19 Jun 2026 18:14:11 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: Big Banana Car\nPublished: Fri, 19 Jun 2026 18:14:11 +0000\nSource: https://hnrss.org/frontpage"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: John Jumper to join Anthropic\nSummary: Article URL: https://twitter.com/JohnJumperSci/status/2068001285173834106 Comments URL: https://news.ycombinator.com/item?id=48601162 Points: 106 # Comments: 76\nPublished: Fri, 19 Jun 2026 17:53:00 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Article URL: https://twitter.com/JohnJumperSci/status/2068001285173834106 Comments URL: https://news.ycombinator.com/item?id=48601162 Points: 106 # Comments: 76"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: John Jumper to join Anthropic\nSummary: Article URL: https://twitter.com/JohnJumperSci/status/2068001285173834106 Comments URL: https://news.ycombinator.com/item?id=48601162 Points: 106 # Comments: 76\nPublished: Fri, 19 Jun 2026 17:53:00 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: Article URL: https://twitter.com/JohnJumperSci/status/2068001285173834106 Comments URL: https://news.ycombinator.com/item?id=48601162 Points: 106 # Comments: 76"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: John Jumper to join Anthropic\nSummary: Article URL: https://twitter.com/JohnJumperSci/status/2068001285173834106 Comments URL: https://news.ycombinator.com/item?id=48601162 Points: 106 # Comments: 76\nPublished: Fri, 19 Jun 2026 17:53:00 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: John Jumper to join Anthropic\nPublished: Fri, 19 Jun 2026 17:53:00 +0000\nSource: https://hnrss.org/frontpage"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Court Records Should Be Free\nSummary: Article URL: https://www.eff.org/deeplinks/2026/06/court-records-should-be-free Comments URL: https://news.ycombinator.com/item?id=48600946 Points: 323 # Comments: 69\nPublished: Fri, 19 Jun 2026 17:34:18 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Article URL: https://www.eff.org/deeplinks/2026/06/court-records-should-be-free Comments URL: https://news.ycombinator.com/item?id=48600946 Points: 323 # Comments: 69"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Court Records Should Be Free\nSummary: Article URL: https://www.eff.org/deeplinks/2026/06/court-records-should-be-free Comments URL: https://news.ycombinator.com/item?id=48600946 Points: 323 # Comments: 69\nPublished: Fri, 19 Jun 2026 17:34:18 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: Article URL: https://www.eff.org/deeplinks/2026/06/court-records-should-be-free Comments URL: https://news.ycombinator.com/item?id=48600946 Points: 323 # Comments: 69"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Court Records Should Be Free\nSummary: Article URL: https://www.eff.org/deeplinks/2026/06/court-records-should-be-free Comments URL: https://news.ycombinator.com/item?id=48600946 Points: 323 # Comments: 69\nPublished: Fri, 19 Jun 2026 17:34:18 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: Court Records Should Be Free\nPublished: Fri, 19 Jun 2026 17:34:18 +0000\nSource: https://hnrss.org/frontpage"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: AURpocalypse now: a look at the recent AUR attacks\nSummary: Article URL: https://lwn.net/SubscriberLink/1077619/f7b07c5489fdd43a/ Comments URL: https://news.ycombinator.com/item?id=48600593 Points: 50 # Comments: 36\nPublished: Fri, 19 Jun 2026 16:59:16 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Article URL: https://lwn.net/SubscriberLink/1077619/f7b07c5489fdd43a/ Comments URL: https://news.ycombinator.com/item?id=48600593 Points: 50 # Comments: 36"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: AURpocalypse now: a look at the recent AUR attacks\nSummary: Article URL: https://lwn.net/SubscriberLink/1077619/f7b07c5489fdd43a/ Comments URL: https://news.ycombinator.com/item?id=48600593 Points: 50 # Comments: 36\nPublished: Fri, 19 Jun 2026 16:59:16 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: Article URL: https://lwn.net/SubscriberLink/1077619/f7b07c5489fdd43a/ Comments URL: https://news.ycombinator.com/item?id=48600593 Points: 50 # Comments: 36"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: AURpocalypse now: a look at the recent AUR attacks\nSummary: Article URL: https://lwn.net/SubscriberLink/1077619/f7b07c5489fdd43a/ Comments URL: https://news.ycombinator.com/item?id=48600593 Points: 50 # Comments: 36\nPublished: Fri, 19 Jun 2026 16:59:16 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: AURpocalypse now: a look at the recent AUR attacks\nPublished: Fri, 19 Jun 2026 16:59:16 +0000\nSource: https://hnrss.org/frontpage"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Hyundai buys Boston Dynamics\nSummary: Article URL: https://startupfortune.com/hyundai-takes-full-control-of-boston-dynamics-as-softbank-exits-for-325-million/ Comments URL: https://news.ycombinator.com/item?id=48600312 Points: 745 # Comments: 341\nPublished: Fri, 19 Jun 2026 16:28:20 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Article URL: https://startupfortune.com/hyundai-takes-full-control-of-boston-dynamics-as-softbank-exits-for-325-million/ Comments URL: https://news.ycombinator.com/item?id=48600312 Points: 745 # Comments: 341"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Hyundai buys Boston Dynamics\nSummary: Article URL: https://startupfortune.com/hyundai-takes-full-control-of-boston-dynamics-as-softbank-exits-for-325-million/ Comments URL: https://news.ycombinator.com/item?id=48600312 Points: 745 # Comments: 341\nPublished: Fri, 19 Jun 2026 16:28:20 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: Article URL: https://startupfortune.com/hyundai-takes-full-control-of-boston-dynamics-as-softbank-exits-for-325-million/ Comments URL: https://news.ycombinator.com/item?id=48600312 Points: 745 # Comments: 341"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Hyundai buys Boston Dynamics\nSummary: Article URL: https://startupfortune.com/hyundai-takes-full-control-of-boston-dynamics-as-softbank-exits-for-325-million/ Comments URL: https://news.ycombinator.com/item?id=48600312 Points: 745 # Comments: 341\nPublished: Fri, 19 Jun 2026 16:28:20 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: Hyundai buys Boston Dynamics\nPublished: Fri, 19 Jun 2026 16:28:20 +0000\nSource: https://hnrss.org/frontpage"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Norway imposes near ban on AI in elementary school\nSummary: Article URL: https://www.reuters.com/technology/norway-imposes-near-ban-ai-elementary-school-2026-06-19/ Comments URL: https://news.ycombinator.com/item?id=48600093 Points: 574 # Comments: 389\nPublished: Fri, 19 Jun 2026 16:03:15 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Article URL: https://www.reuters.com/technology/norway-imposes-near-ban-ai-elementary-school-2026-06-19/ Comments URL: https://news.ycombinator.com/item?id=48600093 Points: 574 # Comments: 389"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Norway imposes near ban on AI in elementary school\nSummary: Article URL: https://www.reuters.com/technology/norway-imposes-near-ban-ai-elementary-school-2026-06-19/ Comments URL: https://news.ycombinator.com/item?id=48600093 Points: 574 # Comments: 389\nPublished: Fri, 19 Jun 2026 16:03:15 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: Article URL: https://www.reuters.com/technology/norway-imposes-near-ban-ai-elementary-school-2026-06-19/ Comments URL: https://news.ycombinator.com/item?id=48600093 Points: 574 # Comments: 389"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Norway imposes near ban on AI in elementary school\nSummary: Article URL: https://www.reuters.com/technology/norway-imposes-near-ban-ai-elementary-school-2026-06-19/ Comments URL: https://news.ycombinator.com/item?id=48600093 Points: 574 # Comments: 389\nPublished: Fri, 19 Jun 2026 16:03:15 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: Norway imposes near ban on AI in elementary school\nPublished: Fri, 19 Jun 2026 16:03:15 +0000\nSource: https://hnrss.org/frontpage"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: There are no instances in ATProto\nSummary: Article URL: https://overreacted.io/there-are-no-instances-in-atproto/ Comments URL: https://news.ycombinator.com/item?id=48599515 Points: 398 # Comments: 210\nPublished: Fri, 19 Jun 2026 15:10:02 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Article URL: https://overreacted.io/there-are-no-instances-in-atproto/ Comments URL: https://news.ycombinator.com/item?id=48599515 Points: 398 # Comments: 210"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: There are no instances in ATProto\nSummary: Article URL: https://overreacted.io/there-are-no-instances-in-atproto/ Comments URL: https://news.ycombinator.com/item?id=48599515 Points: 398 # Comments: 210\nPublished: Fri, 19 Jun 2026 15:10:02 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: Article URL: https://overreacted.io/there-are-no-instances-in-atproto/ Comments URL: https://news.ycombinator.com/item?id=48599515 Points: 398 # Comments: 210"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: There are no instances in ATProto\nSummary: Article URL: https://overreacted.io/there-are-no-instances-in-atproto/ Comments URL: https://news.ycombinator.com/item?id=48599515 Points: 398 # Comments: 210\nPublished: Fri, 19 Jun 2026 15:10:02 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: There are no instances in ATProto\nPublished: Fri, 19 Jun 2026 15:10:02 +0000\nSource: https://hnrss.org/frontpage"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: How many of the 170k English words do you know?\nSummary: Article URL: https://vocabowl-870366514258.us-west1.run.app/ Comments URL: https://news.ycombinator.com/item?id=48598586 Points: 304 # Comments: 404\nPublished: Fri, 19 Jun 2026 13:51:36 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Article URL: https://vocabowl-870366514258.us-west1.run.app/ Comments URL: https://news.ycombinator.com/item?id=48598586 Points: 304 # Comments: 404"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: How many of the 170k English words do you know?\nSummary: Article URL: https://vocabowl-870366514258.us-west1.run.app/ Comments URL: https://news.ycombinator.com/item?id=48598586 Points: 304 # Comments: 404\nPublished: Fri, 19 Jun 2026 13:51:36 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: Article URL: https://vocabowl-870366514258.us-west1.run.app/ Comments URL: https://news.ycombinator.com/item?id=48598586 Points: 304 # Comments: 404"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: How many of the 170k English words do you know?\nSummary: Article URL: https://vocabowl-870366514258.us-west1.run.app/ Comments URL: https://news.ycombinator.com/item?id=48598586 Points: 304 # Comments: 404\nPublished: Fri, 19 Jun 2026 13:51:36 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: How many of the 170k English words do you know?\nPublished: Fri, 19 Jun 2026 13:51:36 +0000\nSource: https://hnrss.org/frontpage"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Project Valhalla, Explained: How a Decade of Work Arrives in JDK 28\nSummary: Article URL: https://www.jvm-weekly.com/p/project-valhalla-explained-how-a Comments URL: https://news.ycombinator.com/item?id=48595511 Points: 569 # Comments: 359\nPublished: Fri, 19 Jun 2026 06:35:57 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Article URL: https://www.jvm-weekly.com/p/project-valhalla-explained-how-a Comments URL: https://news.ycombinator.com/item?id=48595511 Points: 569 # Comments: 359"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Project Valhalla, Explained: How a Decade of Work Arrives in JDK 28\nSummary: Article URL: https://www.jvm-weekly.com/p/project-valhalla-explained-how-a Comments URL: https://news.ycombinator.com/item?id=48595511 Points: 569 # Comments: 359\nPublished: Fri, 19 Jun 2026 06:35:57 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: Article URL: https://www.jvm-weekly.com/p/project-valhalla-explained-how-a Comments URL: https://news.ycombinator.com/item?id=48595511 Points: 569 # Comments: 359"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Project Valhalla, Explained: How a Decade of Work Arrives in JDK 28\nSummary: Article URL: https://www.jvm-weekly.com/p/project-valhalla-explained-how-a Comments URL: https://news.ycombinator.com/item?id=48595511 Points: 569 # Comments: 359\nPublished: Fri, 19 Jun 2026 06:35:57 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: Project Valhalla, Explained: How a Decade of Work Arrives in JDK 28\nPublished: Fri, 19 Jun 2026 06:35:57 +0000\nSource: https://hnrss.org/frontpage"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Flexport (YC W14) Is Hiring in Indonesia, India, and Thailand\nSummary: Article URL: https://www.flexport.com/company/careers/ Comments URL: https://news.ycombinator.com/item?id=48593694 Points: 0 # Comments: 0\nPublished: Fri, 19 Jun 2026 01:01:13 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Article URL: https://www.flexport.com/company/careers/ Comments URL: https://news.ycombinator.com/item?id=48593694 Points: 0 # Comments: 0"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Flexport (YC W14) Is Hiring in Indonesia, India, and Thailand\nSummary: Article URL: https://www.flexport.com/company/careers/ Comments URL: https://news.ycombinator.com/item?id=48593694 Points: 0 # Comments: 0\nPublished: Fri, 19 Jun 2026 01:01:13 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: Article URL: https://www.flexport.com/company/careers/ Comments URL: https://news.ycombinator.com/item?id=48593694 Points: 0 # Comments: 0"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Flexport (YC W14) Is Hiring in Indonesia, India, and Thailand\nSummary: Article URL: https://www.flexport.com/company/careers/ Comments URL: https://news.ycombinator.com/item?id=48593694 Points: 0 # Comments: 0\nPublished: Fri, 19 Jun 2026 01:01:13 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: Flexport (YC W14) Is Hiring in Indonesia, India, and Thailand\nPublished: Fri, 19 Jun 2026 01:01:13 +0000\nSource: https://hnrss.org/frontpage"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: The AirPods Effect\nSummary: Article URL: https://www.theescapenewsletter.com/p/the-airpods-effect Comments URL: https://news.ycombinator.com/item?id=48592832 Points: 400 # Comments: 702\nPublished: Thu, 18 Jun 2026 23:08:35 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Article URL: https://www.theescapenewsletter.com/p/the-airpods-effect Comments URL: https://news.ycombinator.com/item?id=48592832 Points: 400 # Comments: 702"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: The AirPods Effect\nSummary: Article URL: https://www.theescapenewsletter.com/p/the-airpods-effect Comments URL: https://news.ycombinator.com/item?id=48592832 Points: 400 # Comments: 702\nPublished: Thu, 18 Jun 2026 23:08:35 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: Article URL: https://www.theescapenewsletter.com/p/the-airpods-effect Comments URL: https://news.ycombinator.com/item?id=48592832 Points: 400 # Comments: 702"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: The AirPods Effect\nSummary: Article URL: https://www.theescapenewsletter.com/p/the-airpods-effect Comments URL: https://news.ycombinator.com/item?id=48592832 Points: 400 # Comments: 702\nPublished: Thu, 18 Jun 2026 23:08:35 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: The AirPods Effect\nPublished: Thu, 18 Jun 2026 23:08:35 +0000\nSource: https://hnrss.org/frontpage"
+  },
+  {
+    "instruction": "Answer using only the retrieved knowledge. If the answer is not present, say you do not have enough information.",
+    "input": "Question: What is the main point of this current item?\n\nRetrieved Knowledge:\nTitle: Building a robotics research setup that lives next to my desk\nSummary: Quick framing, since the post is long: I did robotic manipulation research at OpenAI from 2017–2020, and the tabletop setup back then cost roughly 10x this one and took a team to run. This project is me testing whether a single person can now do meaningful work on the same class of problems: starting with physical and software setup. A few decisions I'm least settled on, and would love some pushback/feedback on: - single arm vs. bimanual (I went single for cost/space, knowing it rules out things like folding cloth) - not calibrating camera extrinsics/intrinsics for now - RGB vs. RGB-D for from-scratch policies (ACT / Diffusion Policy) And one I'm more confident about but expect disagreement on: not building on ROS 2 / LeRobot, and writing my own stack instead. Happy to get into the reasoning. Comments URL: https://news.ycombinator.com/item?id=48586329 Points: 136 # Comments: 47\nPublished: Thu, 18 Jun 2026 14:51:53 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Quick framing, since the post is long: I did robotic manipulation research at OpenAI from 2017–2020, and the tabletop setup back then cost roughly 10x this one and took a team to run. This project is me testing whether a single person can now do meaningful work on the same class of problems: starting with physical and software setup. A few decisions I'm least settled on, and would love some pushback/feedback on: - single arm vs. bimanual (I went single for cost/space, knowing it rules out things like folding cloth) - not calibrating camera extrinsics/intrinsics for now - RGB vs. RGB-D for from-scratch policies (ACT / Diffusion Policy) And one I'm more confident about but expect disagreement on: not building on ROS 2 / LeRobot, and writing my own stack instead. Happy to get into the reasoning. Comments URL: https://news.ycombinator.com/item?id=48586329 Points: 136 # Comments: 47"
+  },
+  {
+    "instruction": "Create a concise enterprise briefing from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Building a robotics research setup that lives next to my desk\nSummary: Quick framing, since the post is long: I did robotic manipulation research at OpenAI from 2017–2020, and the tabletop setup back then cost roughly 10x this one and took a team to run. This project is me testing whether a single person can now do meaningful work on the same class of problems: starting with physical and software setup. A few decisions I'm least settled on, and would love some pushback/feedback on: - single arm vs. bimanual (I went single for cost/space, knowing it rules out things like folding cloth) - not calibrating camera extrinsics/intrinsics for now - RGB vs. RGB-D for from-scratch policies (ACT / Diffusion Policy) And one I'm more confident about but expect disagreement on: not building on ROS 2 / LeRobot, and writing my own stack instead. Happy to get into the reasoning. Comments URL: https://news.ycombinator.com/item?id=48586329 Points: 136 # Comments: 47\nPublished: Thu, 18 Jun 2026 14:51:53 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Briefing: Quick framing, since the post is long: I did robotic manipulation research at OpenAI from 2017–2020, and the tabletop setup back then cost roughly 10x this one and took a team to run. This project is me testing whether a single person can now do meaningful work on the same class of problems: starting with physical and software setup. A few decisions I'm least settled on, and would love some pushback/feedback on: - single arm vs. bimanual (I went single for cost/space, knowing it rules out things like folding cloth) - not calibrating camera extrinsics/intrinsics for now - RGB vs. RGB-D for from-scratch policies (ACT / Diffusion Policy) And one I'm more confident about but expect disagreement on: not building on ROS 2 / LeRobot, and writing my own stack instead. Happy to get into the reasoning. Comments URL: https://news.ycombinator.com/item?id=48586329 Points: 136 # Comments: 47"
+  },
+  {
+    "instruction": "Extract source details from the retrieved knowledge.",
+    "input": "Retrieved Knowledge:\nTitle: Building a robotics research setup that lives next to my desk\nSummary: Quick framing, since the post is long: I did robotic manipulation research at OpenAI from 2017–2020, and the tabletop setup back then cost roughly 10x this one and took a team to run. This project is me testing whether a single person can now do meaningful work on the same class of problems: starting with physical and software setup. A few decisions I'm least settled on, and would love some pushback/feedback on: - single arm vs. bimanual (I went single for cost/space, knowing it rules out things like folding cloth) - not calibrating camera extrinsics/intrinsics for now - RGB vs. RGB-D for from-scratch policies (ACT / Diffusion Policy) And one I'm more confident about but expect disagreement on: not building on ROS 2 / LeRobot, and writing my own stack instead. Happy to get into the reasoning. Comments URL: https://news.ycombinator.com/item?id=48586329 Points: 136 # Comments: 47\nPublished: Thu, 18 Jun 2026 14:51:53 +0000\nSource: https://hnrss.org/frontpage",
+    "output": "Title: Building a robotics research setup that lives next to my desk\nPublished: Thu, 18 Jun 2026 14:51:53 +0000\nSource: https://hnrss.org/frontpage"
+  }
+]

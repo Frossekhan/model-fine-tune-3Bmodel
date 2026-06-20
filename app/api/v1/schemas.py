@@ -72,4 +72,6 @@ class VoiceSentimentResponse(BaseModel):
     confidence: float
     probabilities: Dict[str, float]
     model: str
+    realtime_data_available: bool = False
+    realtime_context: Optional[List[Dict[str, Any]]] = None
 

@@ -1,9 +1,13 @@
 import logging
+import hashlib
+import math
 import torch
 from transformers import AutoModel, AutoTokenizer
 from app.config import settings
 
 logger = logging.getLogger(__name__)
+
+FALLBACK_EMBEDDING_DIM = 384
 
 
 class EmbeddingsService:
@@ -27,10 +31,10 @@ class EmbeddingsService:
     @torch.inference_mode()
     def embed(self, texts):
         if self.tokenizer is None or self.model is None:
-            logger.warning("Embedding model not initialized. Returning zero vectors.")
             if isinstance(texts, str):
                 texts = [texts]
-            return [[0.0] * 384 for _ in texts]  # Return dummy embeddings
+            logger.warning("Embedding model not initialized. Using hashing embeddings.")
+            return [self._hash_embed(text) for text in texts]
         
         if isinstance(texts, str):
             texts = [texts]
@@ -40,6 +44,19 @@ class EmbeddingsService:
         outputs = self.model(**inputs)
         vector = outputs.last_hidden_state[:, 0, :]
         return vector.detach().cpu().numpy().tolist()
+
+    def _hash_embed(self, text: str):
+        vector = [0.0] * FALLBACK_EMBEDDING_DIM
+        tokens = str(text).lower().split()
+        for token in tokens:
+            digest = hashlib.sha256(token.encode("utf-8")).digest()
+            index = int.from_bytes(digest[:4], "big") % FALLBACK_EMBEDDING_DIM
+            sign = 1.0 if digest[4] % 2 == 0 else -1.0
+            vector[index] += sign
+        norm = math.sqrt(sum(value * value for value in vector))
+        if norm == 0:
+            return vector
+        return [value / norm for value in vector]
 
 
 embeddings_service = EmbeddingsService()
