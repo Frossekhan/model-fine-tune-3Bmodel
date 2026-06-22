@@ -2,6 +2,7 @@ import os
 import asyncio
 import logging
 import functools
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 import torch
 from transformers import (
@@ -63,10 +64,11 @@ class ModelService:
             torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
             device_map="auto" if torch.cuda.is_available() else None,
         )
-        lora_config = os.path.join(settings.lora_output_dir, "adapter_config.json") if settings.lora_output_dir else None
-        if lora_config and os.path.exists(lora_config):
-            cls.model = PeftModel.from_pretrained(base_model, settings.lora_output_dir, torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32)
-            logger.info("Model loaded with LoRA adapters from %s", settings.lora_output_dir)
+        lora_dir = Path(__file__).resolve().parents[2] / settings.lora_output_dir if settings.lora_output_dir else None
+        lora_config = lora_dir / "adapter_config.json" if lora_dir else None
+        if lora_config and lora_config.exists():
+            cls.model = PeftModel.from_pretrained(base_model, str(lora_dir), torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32)
+            logger.info("Model loaded with LoRA adapters from %s", lora_dir)
         else:
             cls.model = base_model
             logger.info("Base model loaded perfectly without LoRA corruption.")

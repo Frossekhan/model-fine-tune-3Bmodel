@@ -1,0 +1,53 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Local models (keep structure but not the large files)
+models/lora-*/
+models/sentiment/*.json
+!models/lora-qwen3b-amazon-valid/
+!models/lora-qwen3b-amazon-valid/*.json
+!models/lora-qwen3b-amazon-valid/*.safetensors
+
+# ChromaDB
+chroma_store/
+
+# Environment
+.env
+
+# Tests
+tests/
+*.test.py
+
+# Documentation
+*.md
+!README.md
+
+# Temporary files
+tmp/
+temp/
+*.tmp

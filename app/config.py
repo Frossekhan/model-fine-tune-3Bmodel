@@ -1,10 +1,11 @@
 import os
+from pathlib import Path
 from pydantic_settings import BaseSettings
 from pydantic import Field, ConfigDict
 
 
 class Settings(BaseSettings):
-    model_config = ConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
+    model_config = ConfigDict(env_file=str(Path(__file__).resolve().parent.parent / ".env"), env_file_encoding="utf-8", extra="ignore")
     
     app_name: str = "Enterprise AI Assistant"
     environment: str = Field(default="production", env="ENVIRONMENT")

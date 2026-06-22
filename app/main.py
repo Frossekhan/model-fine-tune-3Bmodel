@@ -76,12 +76,12 @@ app.add_middleware(
 app.include_router(api_router, prefix="/api/v1")
 app.include_router(sentiment.router, prefix="/api/v1")
 app.mount("/metrics", make_asgi_app())
-app.mount("/static", StaticFiles(directory="app/static"), name="static")
+app.mount("/static", StaticFiles(directory=str(Path(__file__).resolve().parent / "static")), name="static")
 
 
 @app.get("/")
 async def chat_app():
-    return FileResponse("app/static/index.html")
+    return FileResponse(str(Path(__file__).resolve().parent / "static" / "index.html"))
 
 
 

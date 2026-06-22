@@ -17,13 +17,13 @@ class SentimentService:
 
     @classmethod
     def initialize(cls) -> None:
-        model_path = Path(settings.sentiment_model_path)
+        model_path = Path(__file__).resolve().parents[2] / settings.sentiment_model_path
         if model_path.exists():
             cls.classifier = MultinomialNaiveBayes.load(str(model_path))
             logger.info("Loaded sentiment model from %s", model_path)
             return
 
-        dataset_path = Path(settings.sentiment_dataset_path)
+        dataset_path = Path(__file__).resolve().parents[2] / settings.sentiment_dataset_path
         texts, labels = load_sentiment_dataset(str(dataset_path))
         cls.classifier = MultinomialNaiveBayes(alpha=settings.sentiment_alpha)
         cls.classifier.fit(texts, labels)

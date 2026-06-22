@@ -81,12 +81,35 @@ class LoRATrainer:
         return peft_config
 
     def train(self):
-        model = AutoModelForCausalLM.from_pretrained(
-            settings.model_base,
-            trust_remote_code=True,
-            device_map="auto" if torch.cuda.is_available() else None,
-            torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
-        )
+        device = "cpu"
+        dtype = torch.float32
+        if torch.cuda.is_available():
+            try:
+                model = AutoModelForCausalLM.from_pretrained(
+                    settings.model_base,
+                    trust_remote_code=True,
+                    device_map="auto",
+                    torch_dtype=torch.float16,
+                )
+                device = "cuda"
+                dtype = torch.float16
+            except Exception as e:
+                print(f"CUDA load failed, falling back to CPU: {e}")
+                model = AutoModelForCausalLM.from_pretrained(
+                    settings.model_base,
+                    trust_remote_code=True,
+                    device_map=None,
+                    torch_dtype=torch.float32,
+                    low_cpu_mem_usage=True,
+                )
+        else:
+            model = AutoModelForCausalLM.from_pretrained(
+                settings.model_base,
+                trust_remote_code=True,
+                device_map=None,
+                torch_dtype=torch.float32,
+                low_cpu_mem_usage=True,
+            )
 
         if os.path.exists(self.output_dir) and os.path.exists(os.path.join(self.output_dir, "adapter_config.json")):
             logger.info("Loading existing LoRA adapter from %s to resume training", self.output_dir)
@@ -100,8 +123,7 @@ class LoRATrainer:
 
         train_dataset = self.prepare_dataset()
         optimizer = torch.optim.AdamW(peft_model.parameters(), lr=settings.fine_tune_learning_rate)
-        device = peft_model.device if hasattr(peft_model, "device") else ("cuda" if torch.cuda.is_available() else "cpu")
-        if not torch.cuda.is_available():
+        if device == "cpu":
             peft_model.to(device)
 
         max_steps = int(getattr(settings, "fine_tune_max_steps", 8))

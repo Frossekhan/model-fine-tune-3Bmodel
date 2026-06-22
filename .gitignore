@@ -1,14 +1,59 @@
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .Python
-.env
 .venv/
 venv/
+env/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
 logs/
-chroma_store/
-models/lora/
-models/sentiment/
 *.log
-*.sqlite
+
+# Local models (large files should not be in git)
+models/lora-*/
+models/sentiment/*.json
+!models/lora-qwen3b-amazon-valid/
+!models/lora-qwen3b-amazon-valid/*.json
+!models/lora-qwen3b-amazon-valid/*.safetensors
+
+# ChromaDB
+chroma_store/
+
+# Environment
+.env
+
+# Tests
+tests/
+*.test.py
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Docker
+docker-compose.override.yml
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Coverage
+.coverage
+htmlcov/
